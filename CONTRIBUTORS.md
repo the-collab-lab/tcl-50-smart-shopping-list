@@ -14,5 +14,6 @@ Add yourself as a contributor to this project as a Markdown link that links your
 
 - [Chiamaka Umeh](https://github.com/amaka202)🥰
 - [Reda Baha](https://github.com/redapy)😅
+- [Aristos Manolarakis](https://github.com/amanolar94)
 
 ## Code of Conduct Contacts
