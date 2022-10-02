@@ -21,39 +21,39 @@ Pairings will go as follows:
 #### Week 1, October 3 - 9
 
 1. Klesta & Victor
-2. Nausheen & Iyimide
+2. Michelle & Iyimide
 
 #### Week 2, October 10 - 16
 
-1. Victor & Nausheen
+1. Victor & Michelle
 2. Klesta & Iyimide
 
 #### Week 3, October 17 - 23
 
-1. Nausheen & Klesta
+1. Michelle & Klesta
 2. Iyimide & Victor
 
 #### Week 4, October 24 - 30
 
 1. Klesta & Victor
-2. Nausheen & Iyimide
+2. Michelle & Iyimide
 
 #### Week 5, October 31 - November 6
 
-1. Victor & Nausheen
+1. Victor & Michelle
 2. Klesta & Iyimide
 
 #### Week 6, November 7 - 13
 
-1. Nausheen & Klesta
+1. Michelle & Klesta
 2. Iyimide & Victor
 
 #### Week 7, November 14 - 20
 
 1. Klesta & Victor
-2. Nausheen & Iyimide
+2. Michelle & Iyimide
 
 #### Week 8, November 21 - 27
 
-1. Victor & Nausheen
+1. Victor & Michelle
 2. Klesta & Iyimide
