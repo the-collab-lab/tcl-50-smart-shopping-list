@@ -9,6 +9,7 @@ Add yourself as a contributor to this project as a Markdown link that links your
 - [Victor Owiti](https://github.com/vicowiti) ✨
 - [Klesta Luli](https://github.com/klezi10) 😂
 - [Iyimide Adegunloye](https://github.com/mide358)😍
+- [Michelle David](https://github.com/michhub-dev)🤓
 
 ## Mentors
 
