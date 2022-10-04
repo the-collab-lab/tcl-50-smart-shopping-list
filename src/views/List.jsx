@@ -1,6 +1,7 @@
 import { ListItem } from '../components';
 
 export function List({ data }) {
+	const list = data.map((listItem, index) => <li key={index}>{listItem}</li>);
 	return (
 		<>
 			<p>
