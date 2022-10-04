@@ -1,19 +1,15 @@
 import { ListItem } from '../components';
 
 export function List({ data }) {
-	const list = data.map((listItem, index) => <li key={index}>{listItem}</li>);
+	const list = data.map((listItem) => (
+		<li key={listItem.id}>{listItem.name}</li>
+	));
 	return (
 		<>
 			<p>
 				Hello from the <code>/list</code> page!
 			</p>
-			<ul>
-				{/**
-				 * TODO: write some JavaScript that renders the `data` array
-				 * using the `ListItem` component that's imported at the top
-				 * of this file.
-				 */}
-			</ul>
+			<ul>{list}</ul>
 		</>
 	);
 }
