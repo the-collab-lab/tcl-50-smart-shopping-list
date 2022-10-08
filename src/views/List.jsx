@@ -1,6 +1,6 @@
 import { ListItem } from '../components';
 
-export default function List({ data }) {
+export function List({ data }) {
 	return (
 		<>
 			<p>

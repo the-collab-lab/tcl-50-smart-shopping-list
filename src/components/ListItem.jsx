@@ -1,9 +1,9 @@
 import './ListItem.css';
 
-export default function ListItem({ name }) {
+export function ListItem({ name }) {
 	return (
 		<>
-			<li className="ListItem"> {name}</li>;
+			<li className="ListItem"> {name}</li>
 		</>
 	);
 }
