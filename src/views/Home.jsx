@@ -8,7 +8,6 @@ export function Home(props) {
 
 	useEffect(() => {
 		if (listToken) {
-			console.log(listToken);
 			navigate('/list');
 		}
 	}, [listToken, navigate]);
