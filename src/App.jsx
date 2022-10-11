@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	useNavigate,
+} from 'react-router-dom';
+import { generateToken } from '@the-collab-lab/shopping-list-utils';
 import { AddItem, Home, Layout, List } from './views';
 
 import { getItemData, streamListItems } from './api';
@@ -8,6 +13,7 @@ import { useStateWithStorage } from './utils';
 
 export function App() {
 	const [data, setData] = useState([]);
+	// // let navigate = useNavigate();
 	/**
 	 * Here, we're using a custom hook to create `listToken` and a function
 	 * that can be used to update `listToken` later.
@@ -19,12 +25,25 @@ export function App() {
 	 * to create and join a new list.
 	 */
 	const [listToken, setListToken] = useStateWithStorage(
-		'my test list',
+		'null',
 		'tcl-shopping-list-token',
 	);
 
+	function handleClick(event) {
+		event.preventDefault();
+		let newToken = generateToken();
+		console.log(newToken);
+		setListToken(newToken);
+		// navigate('/list');
+	}
+	// if token is available , go to list page
+	// else if there is no token, click to generate token
+
 	useEffect(() => {
 		if (!listToken) return;
+		if (listToken) {
+			console.log('this should navigate to list page');
+		}
 
 		/**
 		 * streamListItems` takes a `listToken` so it can commuinicate
@@ -51,7 +70,7 @@ export function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Layout />}>
-					<Route index element={<Home />} />
+					<Route index element={<Home handleClick={handleClick} />} />
 					<Route path="/list" element={<List data={data} />} />
 					<Route path="/add-item" element={<AddItem />} />
 				</Route>
