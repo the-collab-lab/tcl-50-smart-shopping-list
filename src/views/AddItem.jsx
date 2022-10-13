@@ -56,16 +56,16 @@ export function AddItem() {
 						<div>
 							<input
 								type="radio"
-								id="kind of soon"
+								id="kind_of_soon"
 								name="duration"
 								value={14}
 							/>
-							<label htmlFor="kind of soon">Kind of Soon</label>
+							<label htmlFor="kind_of_soon">Kind of Soon</label>
 						</div>
 
 						<div>
-							<input type="radio" id="not soon" name="duration" value={30} />
-							<label htmlFor="not soon">Not Soon</label>
+							<input type="radio" id="not_soon" name="duration" value={30} />
+							<label htmlFor="not_soon">Not Soon</label>
 						</div>
 					</fieldset>
 				</div>
