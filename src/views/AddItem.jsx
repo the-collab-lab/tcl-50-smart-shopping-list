@@ -5,6 +5,7 @@ export function AddItem() {
 	const [newItem, setNewItem] = useState('');
 	const [nextPurchaseTime, setPurchaseTime] = useState(7);
 	const [statusMessage, setStatusMessage] = useState('');
+	const [alertVisible, setAlertVisible] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -17,13 +18,20 @@ export function AddItem() {
 		});
 
 		if (item.id) {
-			setStatusMessage('Item Successfully Added!');
+			setAlertVisible(true);
+			setStatusMessage(`${newItem} Successfully Added!`);
+
 			setNewItem('');
 			setPurchaseTime(7);
+
+			setTimeout(() => {
+				setAlertVisible(false);
+			}, 5000);
 		} else {
 			setStatusMessage('Item Not Added!');
 		}
 	};
+
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -35,6 +43,7 @@ export function AddItem() {
 						placeholder="Enter Item to Purchase"
 						value={newItem}
 						onChange={(e) => setNewItem(e.target.value)}
+						required
 					/>
 				</div>
 
@@ -70,7 +79,7 @@ export function AddItem() {
 					</fieldset>
 				</div>
 				<button type="submit">Add Item</button>
-				{statusMessage && <p>{statusMessage}</p>}
+				{alertVisible && statusMessage && <p>{statusMessage}</p>}
 			</form>
 		</>
 	);
