@@ -12,7 +12,6 @@ export function AddItem() {
 
 		let listId = 'my test list';
 
-		console.log(nextPurchaseTime, newItem);
 		const item = await addItem(listId, {
 			itemName: newItem,
 			daysUntilNextPurchase: nextPurchaseTime,
