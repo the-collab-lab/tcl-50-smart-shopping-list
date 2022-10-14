@@ -12,6 +12,7 @@ export function AddItem() {
 
 		let listId = 'my test list';
 
+		console.log(nextPurchaseTime, newItem);
 		const item = await addItem(listId, {
 			itemName: newItem,
 			daysUntilNextPurchase: nextPurchaseTime,
@@ -26,7 +27,7 @@ export function AddItem() {
 
 			setTimeout(() => {
 				setAlertVisible(false);
-			}, 5000);
+			}, 3000);
 		} else {
 			setStatusMessage('Item Not Added!');
 		}
@@ -48,7 +49,7 @@ export function AddItem() {
 				</div>
 
 				<div>
-					<fieldset onChange={(e) => setPurchaseTime(e.target.value)}>
+					<fieldset>
 						<legend>How soon will you buy this again?</legend>
 
 						<div>
@@ -56,6 +57,7 @@ export function AddItem() {
 								type="radio"
 								id="soon"
 								name="duration"
+								onChange={(e) => setPurchaseTime(e.target.value)}
 								value={7}
 								defaultChecked
 							/>
@@ -68,12 +70,19 @@ export function AddItem() {
 								id="kind_of_soon"
 								name="duration"
 								value={14}
+								onChange={(e) => setPurchaseTime(e.target.value)}
 							/>
 							<label htmlFor="kind_of_soon">Kind of Soon</label>
 						</div>
 
 						<div>
-							<input type="radio" id="not_soon" name="duration" value={30} />
+							<input
+								type="radio"
+								id="not_soon"
+								name="duration"
+								value={30}
+								onChange={(e) => setPurchaseTime(e.target.value)}
+							/>
 							<label htmlFor="not_soon">Not Soon</label>
 						</div>
 					</fieldset>
