@@ -5,7 +5,6 @@ export function AddItem() {
 	const [newItem, setNewItem] = useState('');
 	const [nextPurchaseTime, setPurchaseTime] = useState(7);
 	const [statusMessage, setStatusMessage] = useState('');
-	const [alertVisible, setAlertVisible] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -18,14 +17,13 @@ export function AddItem() {
 		});
 
 		if (item.id) {
-			setAlertVisible(true);
 			setStatusMessage(`${newItem} Successfully Added!`);
 
 			setNewItem('');
 			setPurchaseTime(7);
 
 			setTimeout(() => {
-				setAlertVisible(false);
+				setStatusMessage('');
 			}, 3000);
 		} else {
 			setStatusMessage('Item Not Added!');
@@ -87,7 +85,7 @@ export function AddItem() {
 					</fieldset>
 				</div>
 				<button type="submit">Add Item</button>
-				{alertVisible && statusMessage && <p>{statusMessage}</p>}
+				{statusMessage && <p>{statusMessage}</p>}
 			</form>
 		</>
 	);
