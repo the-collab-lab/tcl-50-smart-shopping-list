@@ -1,5 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
 import { generateToken } from '@the-collab-lab/shopping-list-utils';
 import { AddItem, Home, Layout, List } from './views';
 
@@ -58,7 +63,13 @@ export function App() {
 				<Route path="/" element={<Layout />}>
 					<Route
 						index
-						element={<Home onClick={handleClick} listToken={listToken} />}
+						element={
+							listToken ? (
+								<Navigate to="/list" />
+							) : (
+								<Home onClick={handleClick} />
+							)
+						}
 					/>
 					<Route path="/list" element={<List data={data} />} />
 					<Route path="/add-item" element={<AddItem />} />

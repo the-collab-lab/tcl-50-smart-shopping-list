@@ -1,16 +1,7 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 export function Home(props) {
-	const { listToken, onClick } = props;
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		if (listToken) {
-			navigate('/list');
-		}
-	}, [listToken, navigate]);
+	const { onClick } = props;
 
 	return (
 		<div className="Home">
