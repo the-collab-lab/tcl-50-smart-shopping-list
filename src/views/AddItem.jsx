@@ -56,7 +56,7 @@ export function AddItem() {
 								name="duration"
 								onChange={(e) => setPurchaseTime(e.target.value)}
 								value={7}
-								defaultChecked
+								checked={7 === parseInt(nextPurchaseTime)}
 							/>
 							<label htmlFor="soon">Soon</label>
 						</div>
@@ -68,6 +68,7 @@ export function AddItem() {
 								name="duration"
 								value={14}
 								onChange={(e) => setPurchaseTime(e.target.value)}
+								checked={14 === parseInt(nextPurchaseTime)}
 							/>
 							<label htmlFor="kind_of_soon">Kind of Soon</label>
 						</div>
@@ -79,6 +80,7 @@ export function AddItem() {
 								name="duration"
 								value={30}
 								onChange={(e) => setPurchaseTime(e.target.value)}
+								checked={30 === parseInt(nextPurchaseTime)}
 							/>
 							<label htmlFor="not_soon">Not Soon</label>
 						</div>
