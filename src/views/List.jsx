@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ListItem } from '../components';
 
 export function List({ data }) {
 	const [searchItem, setSearchItem] = useState('');
+	const [filteredItems, setFilteredItems] = useState(data);
+
+	useEffect(() => {
+		setFilteredItems(
+			data.filter((item) =>
+				item.name.toLowerCase().includes(searchItem.toLowerCase()),
+			),
+		);
+	}, [searchItem, data]);
 
 	return (
 		<>
 			<form>
 				<label htmlFor="filter_items">Filter items </label>
 				<input
-					type="text"
+					type="search"
 					value={searchItem}
 					id="filter_items"
 					placeholder="Start typing here..."
@@ -17,7 +26,7 @@ export function List({ data }) {
 				/>
 			</form>
 			<ul>
-				{data.map((item) => (
+				{filteredItems.map((item) => (
 					<ListItem name={item.name} key={item.id} />
 				))}
 			</ul>
