@@ -72,7 +72,7 @@ export function App() {
 						}
 					/>
 					<Route path="/list" element={<List data={data} />} />
-					<Route path="/add-item" element={<AddItem />} />
+					<Route path="/add-item" element={<AddItem listId={listToken} />} />
 				</Route>
 			</Routes>
 		</Router>
