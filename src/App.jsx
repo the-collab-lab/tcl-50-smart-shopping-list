@@ -13,6 +13,7 @@ import { useStateWithStorage } from './utils';
 
 export function App() {
 	const [data, setData] = useState([]);
+
 	/**
 	 * Here, we're using a custom hook to create `listToken` and a function
 	 * that can be used to update `listToken` later.
@@ -23,6 +24,8 @@ export function App() {
 	 * have tokens), and use `setListToken` when you allow a user
 	 * to create and join a new list.
 	 */
+	const [formToken, setFormToken] = useState('');
+	// const [errorMessage, setErrorMessage] = useState('');
 	const [listToken, setListToken] = useStateWithStorage(
 		null,
 		'tcl-shopping-list-token',
@@ -32,6 +35,24 @@ export function App() {
 		const newToken = generateToken();
 		setListToken(newToken);
 	}, [setListToken]);
+
+	function handleForm(e) {
+		e.preventDefault();
+		streamListItems(formToken, (snapshot) => {
+			const listData = getItemData(snapshot);
+			if (listData?.length === 0) {
+				console.log(listData);
+				// setErrorMessage('this token does not exist');
+				// console.log('not existing');
+
+				// console.log(errorMessage);
+				alert('this token does not exist');
+			} else {
+				console.log('existing');
+				setListToken(formToken);
+			}
+		});
+	}
 
 	useEffect(() => {
 		if (!listToken) return;
@@ -49,7 +70,9 @@ export function App() {
 			 * on them, so we can save them in our React state.
 			 *
 			 * Refer to `api/firebase.js`
+			 *
 			 */
+
 			const nextData = getItemData(snapshot);
 
 			/** Finally, we update our React state. */
@@ -67,12 +90,16 @@ export function App() {
 							listToken ? (
 								<Navigate to="/list" />
 							) : (
-								<Home onClick={handleClick} />
+								<Home
+									onClick={handleClick}
+									handleForm={handleForm}
+									onChange={setFormToken}
+								/>
 							)
 						}
 					/>
 					<Route path="/list" element={<List data={data} />} />
-					<Route path="/add-item" element={<AddItem />} />
+					<Route path="/add-item" element={<AddItem listToken={listToken} />} />
 				</Route>
 			</Routes>
 		</Router>

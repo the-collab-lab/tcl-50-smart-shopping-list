@@ -1,14 +1,14 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
+
 import './Home.css';
 
-export function Home(props) {
+export function Home({ onClick, onChange, handleForm }) {
 	const [token, setToken] = useState('');
-	const { onClick } = props;
 
-	function handleSubmit(e) {
-		e.preventDefault();
-		console.log(token);
-	}
+	useEffect(() => {
+		onChange(token);
+	}, [token, onChange]);
 
 	return (
 		<div className="Home">
@@ -16,7 +16,7 @@ export function Home(props) {
 				Create a new list
 			</button>
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleForm}>
 				<div>
 					<label htmlFor="join-list">Join an existing shopping list</label>
 					<input
