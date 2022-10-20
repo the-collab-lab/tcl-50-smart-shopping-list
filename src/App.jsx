@@ -36,6 +36,7 @@ export function App() {
 		setListToken(newToken);
 	}, [setListToken]);
 
+	// this function handles the join shopping list form in the home page
 	function handleForm(e) {
 		e.preventDefault();
 		streamListItems(formToken, (snapshot) => {
