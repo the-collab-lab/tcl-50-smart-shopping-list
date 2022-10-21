@@ -3,15 +3,10 @@ import { ListItem } from '../components';
 
 export function List({ data }) {
 	const [searchItem, setSearchItem] = useState('');
-	const [filteredItems, setFilteredItems] = useState(data);
 
-	useEffect(() => {
-		setFilteredItems(
-			data.filter((item) =>
-				item.name.toLowerCase().includes(searchItem.toLowerCase()),
-			),
-		);
-	}, [searchItem, data]);
+	const filteredItems = data?.filter((item) =>
+		item?.name.toLowerCase().includes(searchItem.toLowerCase()),
+	);
 
 	return (
 		<>
