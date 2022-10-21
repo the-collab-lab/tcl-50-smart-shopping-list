@@ -25,7 +25,7 @@ export function App() {
 	 * to create and join a new list.
 	 */
 	const [formToken, setFormToken] = useState('');
-	// const [errorMessage, setErrorMessage] = useState('');
+
 	const [listToken, setListToken] = useStateWithStorage(
 		null,
 		'tcl-shopping-list-token',
