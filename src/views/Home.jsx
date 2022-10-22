@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './Home.css';
 
@@ -27,7 +26,9 @@ export function Home({ onClick, onChange, handleForm }) {
 						id="join-list"
 					/>
 				</div>
-				<button type="submit">Join Shopping List</button>
+				<button type="submit" disabled={!token}>
+					Join Shopping List
+				</button>
 			</form>
 		</div>
 	);
