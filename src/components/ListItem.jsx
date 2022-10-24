@@ -1,9 +1,13 @@
 import './ListItem.css';
 
-export function ListItem({ name }) {
+export function ListItem({ name, id }) {
 	return (
 		<>
-			<li className="ListItem"> {name}</li>
+			<li className="ListItem">
+				<label htmlFor={id}>
+					<input type="checkbox" id={id} /> {name}
+				</label>
+			</li>
 		</>
 	);
 }

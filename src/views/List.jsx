@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
-export function List({ data }) {
+export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
 
@@ -26,7 +26,7 @@ export function List({ data }) {
 					</form>
 					<ul>
 						{filteredItems.map((item) => (
-							<ListItem name={item.name} key={item.id} />
+							<ListItem item={item} key={item.id} listToken={listToken} />
 						))}
 					</ul>
 				</>
