@@ -3,13 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
 export function List({ data, listToken }) {
+<<<<<<< HEAD
 	const navigate = useNavigate();
+=======
+>>>>>>> afba910 (checkbox updates firestore)
 	const [searchItem, setSearchItem] = useState('');
 
 	const filteredItems = data?.filter((item) =>
 		item?.name.toLowerCase().includes(searchItem.toLowerCase()),
 	);
-
+	console.log(filteredItems[0]);
 	return (
 		<>
 <<<<<<< HEAD
@@ -50,7 +53,7 @@ export function List({ data, listToken }) {
 			</form>
 			<ul>
 				{filteredItems.map((item) => (
-					<ListItem {...item} name={item.name} key={item.id} id={item.id} />
+					<ListItem item={item} key={item.id} listToken={listToken} />
 				))}
 			</ul>
 >>>>>>> b718420 (Created functions for handlechange and minuteLastPurchase.)

@@ -70,29 +70,24 @@ export async function addItem(listId, { itemName, daysUntilNextPurchase }) {
 	});
 }
 
-export async function updateItem(
-	listId,
-	{ itemName, dateLastPurchased, totalPurchases },
-) {
-	const docRef = doc(db, 'itemName', listId);
+export async function updateItem(listId, itemData) {
+	const docRef = doc(db, listId, itemData.id);
 
-	return await updateDoc(docRef, {
-		isChecked: false,
-		name: itemName,
-		dateLastPurchased: 1,
-		totalPurchases: 0,
+	await updateDoc(docRef, {
+		isChecked: !itemData.isChecked,
+		dateLastPurchased: new Date(),
+		totalPurchases: itemData.totalPurchases,
 	});
-	{
-		/**
+
+	/**
 	   const newCityRef = doc(collection(db, "cities"));
 	 * @param database → db
 	 * @param collection name → cities
-	 * @param document ID 
+	 * @param document ID
 	 * TODO: Fill this out so that it uses the correct Firestore function
 	 * to update an existing item! You'll need to figure out what arguments
 	 * this function must accept!
 **/
-	}
 }
 
 // export async function updateItem(db, listId, itemData, ) {
