@@ -12,7 +12,7 @@ export function List({ data, listToken }) {
 	const filteredItems = data?.filter((item) =>
 		item?.name.toLowerCase().includes(searchItem.toLowerCase()),
 	);
-	console.log(filteredItems[0]);
+
 	return (
 		<>
 <<<<<<< HEAD

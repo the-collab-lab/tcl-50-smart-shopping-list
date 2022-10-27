@@ -1,12 +1,24 @@
 import './ListItem.css';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { updateItem } from '../api/firebase';
 
 export function ListItem({ listToken, item }) {
-	const [isCheckedBox, setIsCheckedBox] = useState(false);
-	// const [purchasedItem, setPurchasedItem] = useState(item.isChecked);
-	let expiryDate = item.dateLastPurchased;
+	useEffect(() => {
+		if (item.isChecked) {
+			let calcDate = item.dateLastPurchased.seconds * 1000 + 86400000;
+			console.log(calcDate);
+			// let testDate = 4000;
 
+			let convertDate = new Date(calcDate);
+			console.log(convertDate);
+
+			setTimeout(() => {
+				updateItem(listToken, item, {
+					isChecked: !item.isChecked,
+				});
+			}, calcDate);
+		}
+	}, [item, listToken]);
 	//
 	const handleChange = () => {
 		if (item.isChecked === false) {
@@ -15,11 +27,12 @@ export function ListItem({ listToken, item }) {
 				dateLastPurchased: item.dateLastPurchased,
 				totalPurchases: item.totalPurchases++,
 			});
-			console.log(item.dateLastPurchased.seconds);
-			console.log(expiryDate);
+
+			console.log(item.dateLastPurchased);
 		} else {
 			updateItem(listToken, item, {
 				isChecked: !item.isChecked,
+
 				totalPurchases: item.totalPurchases + 0,
 			});
 		}
@@ -29,19 +42,6 @@ export function ListItem({ listToken, item }) {
 	 ** the date exact time user checks boxs is stored. total purchases is increased by 1
 	 ** after 24 hrs we set the checkbox to automatically uncheck by comparing date& time checked with the current time. if date checked is > 24hrs, we uncheck the box
 	 */
-	function minuteLastPurchase() {
-		// get current time
-		const currentTime = new Date().getTime();
-		let cal = (Math.floor(Date.now() / 1000) - item.dateLastPurchased) / 60;
-
-		return cal;
-	}
-	function purchaseWithIn24Hrs() {
-		if (item.dateLastPurchased === null) {
-			return false;
-		}
-		return minuteLastPurchase() <= 86400; // one day in seconds
-	}
 
 	return (
 		<>
@@ -53,7 +53,6 @@ export function ListItem({ listToken, item }) {
 						checked={item.isChecked}
 						onChange={handleChange}
 						name={item.name}
-						disabled={purchaseWithIn24Hrs()}
 					/>
 					{item.name}
 				</label>
