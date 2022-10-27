@@ -29,6 +29,19 @@ export function ListItem({ listToken, item }) {
 	 ** the date exact time user checks boxs is stored. total purchases is increased by 1
 	 ** after 24 hrs we set the checkbox to automatically uncheck by comparing date& time checked with the current time. if date checked is > 24hrs, we uncheck the box
 	 */
+	function minuteLastPurchase() {
+		// get current time
+		const currentTime = new Date().getTime();
+		let cal = (Math.floor(Date.now() / 1000) - item.dateLastPurchased) / 60;
+
+		return cal;
+	}
+	function purchaseWithIn24Hrs() {
+		if (item.dateLastPurchased === null) {
+			return false;
+		}
+		return minuteLastPurchase() <= 86400; // one day in seconds
+	}
 
 	return (
 		<>
@@ -40,7 +53,7 @@ export function ListItem({ listToken, item }) {
 						checked={item.isChecked}
 						onChange={handleChange}
 						name={item.name}
-						//  disabled={purchaseWithIn24Hrs}
+						disabled={purchaseWithIn24Hrs()}
 					/>
 					{item.name}
 				</label>
