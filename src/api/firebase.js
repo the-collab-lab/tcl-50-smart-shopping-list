@@ -4,7 +4,6 @@ import {
 	updateDoc,
 	collection,
 	onSnapshot,
-	increment,
 } from 'firebase/firestore';
 import { db } from './config';
 import { getFutureDate } from '../utils';
@@ -80,10 +79,7 @@ export async function updateItem(listId, itemData) {
 	});
 
 	/**
-	   const newCityRef = doc(collection(db, "cities"));
-	 * @param database → db
-	 * @param collection name → cities
-	 * @param document ID
+
 	 * TODO: Fill this out so that it uses the correct Firestore function
 	 * to update an existing item! You'll need to figure out what arguments
 	 * this function must accept!
