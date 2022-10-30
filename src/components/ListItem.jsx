@@ -1,31 +1,34 @@
 import './ListItem.css';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { updateItem } from '../api/firebase';
 
-export function ListItem({ listToken, item }) {
-	const millisecondsIn24hrs = 84600000;
-	useEffect(() => {
-		if (item.isChecked) {
-			let calcDate =
-				item.dateLastPurchased.seconds * 1000 + millisecondsIn24hrs;
+const millisecondsIn24hrs = 86400000;
+const currentDate = new Date();
+const currentTime = currentDate.getTime();
 
-			setTimeout(() => {
-				updateItem(listToken, item, {
-					isChecked: !item.isChecked,
-				});
-			}, calcDate);
-		}
-	}, [item, listToken]);
-	//
-	const handleChange = () => {
-		if (item.isChecked === false) {
+export function ListItem({ listToken, item }) {
+	let calcDate = item.dateLastPurchased
+		? item.dateLastPurchased.seconds * 1000
+		: null;
+
+	useEffect(() => {
+		let timer = currentTime - calcDate;
+		if (item.isChecked && timer > millisecondsIn24hrs) {
 			updateItem(listToken, item, {
+				isChecked: !item.isChecked,
+			});
+		}
+	}, [item, listToken, calcDate]);
+
+	const handleChange = useCallback(async () => {
+		if (item.isChecked === false) {
+			await updateItem(listToken, item, {
 				isChecked: item.isChecked,
 				dateLastPurchased: item.dateLastPurchased,
 				totalPurchases: item.totalPurchases++,
 			});
 		}
-	};
+	}, [listToken, item]);
 
 	return (
 		<>
