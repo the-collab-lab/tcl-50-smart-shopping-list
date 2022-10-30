@@ -73,8 +73,8 @@ export async function updateItem(listId, itemData) {
 	const docRef = doc(db, listId, itemData.id);
 
 	await updateDoc(docRef, {
-		isChecked: !itemData.isChecked,
-		dateLastPurchased: new Date(Date.now()),
+		isChecked: itemData.isChecked,
+		dateLastPurchased: itemData.dateLastPurchased,
 		totalPurchases: itemData.totalPurchases,
 	});
 
