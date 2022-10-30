@@ -5,11 +5,10 @@ import { updateItem } from '../api/firebase';
 const millisecondsIn24hrs = 86400000;
 
 export function ListItem({ listToken, item }) {
-	let calcDate = item.dateLastPurchased
-		? item.dateLastPurchased.seconds * 1000
-		: null;
-
 	useEffect(() => {
+		let calcDate = item.dateLastPurchased
+			? item.dateLastPurchased.seconds * 1000
+			: null;
 		const currentDate = new Date();
 		const currentTime = currentDate.getTime();
 		let timer = currentTime - calcDate;
@@ -18,7 +17,7 @@ export function ListItem({ listToken, item }) {
 				isChecked: !item.isChecked,
 			});
 		}
-	});
+	}, []);
 
 	const handleChange = useCallback(async () => {
 		if (item.isChecked === false) {
