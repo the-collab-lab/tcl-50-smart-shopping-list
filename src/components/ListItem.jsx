@@ -3,8 +3,6 @@ import { useEffect, useCallback } from 'react';
 import { updateItem } from '../api/firebase';
 
 const millisecondsIn24hrs = 86400000;
-const currentDate = new Date();
-const currentTime = currentDate.getTime();
 
 export function ListItem({ listToken, item }) {
 	let calcDate = item.dateLastPurchased
@@ -12,19 +10,21 @@ export function ListItem({ listToken, item }) {
 		: null;
 
 	useEffect(() => {
+		const currentDate = new Date();
+		const currentTime = currentDate.getTime();
 		let timer = currentTime - calcDate;
-		if (item.isChecked && timer > millisecondsIn24hrs) {
+		if (item.isChecked && timer >= millisecondsIn24hrs) {
 			updateItem(listToken, item, {
 				isChecked: !item.isChecked,
 			});
 		}
-	}, [item, listToken, calcDate]);
+	});
 
 	const handleChange = useCallback(async () => {
 		if (item.isChecked === false) {
 			await updateItem(listToken, item, {
 				isChecked: item.isChecked,
-				dateLastPurchased: item.dateLastPurchased,
+				dateLastPurchased: new Date().getTime(),
 				totalPurchases: item.totalPurchases++,
 			});
 		}
