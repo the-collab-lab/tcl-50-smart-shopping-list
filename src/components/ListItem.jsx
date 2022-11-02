@@ -1,8 +1,6 @@
 import './ListItem.css';
 import { useEffect, useCallback } from 'react';
-import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
 import { updateItem } from '../api/firebase';
-import { getFutureDate } from '../utils';
 
 const millisecondsIn24hrs = 86400000;
 
