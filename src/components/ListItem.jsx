@@ -17,27 +17,11 @@ export function ListItem({ listToken, item }) {
 		console.log(item.isChecked && timer >= millisecondsIn24hrs);
 		if (item.isChecked && timer >= millisecondsIn24hrs) {
 			updateItem(listToken, item, {
-				// id: item.id,
 				isChecked: false,
 				dateLastPurchased: item.dateLastPurchased,
-				// totalPurchases: item.totalPurchases,
 			});
 		}
 	}, []);
-
-	let prev = 2;
-	let days = 3;
-
-	console.log(calculateEstimate(prev, days, 7));
-
-	let ans = calculateEstimate(prev, days, 3);
-	// console.log(ans);
-	// console.log(getFutureDate(ans));
-	/**
-	 * convert days to date
-	 * take note of dateLastPurchased
-	 * add calculate estimate to dateLastpuchased to get the date of next purchase
-	 *  */
 
 	const handleChange = useCallback(async () => {
 		if (!item.isChecked) {
@@ -45,22 +29,8 @@ export function ListItem({ listToken, item }) {
 				id: item.id,
 				isChecked: true,
 				dateLastPurchased: item.dateLastPurchased,
-				totalPurchases: item.totalPurchases + 1,
-				//  dateCreated: item.dateCreated.seconds,
-				// 	// previousEstimate: item.previousEstimate,
-				// 	// currentEstimate: item.currentEstimate,
-				// 	// dateNextPurchased: item.dateNextPurchased,
+				totalPurchases: item.totalPurchases,
 			});
-			// await updateItem(listToken, item, {
-			// 	id: item.id,
-			// 	isChecked: !item.isChecked,
-			// 	dateLastPurchased: new Date(),
-			// 	totalPurchases: item.totalPurchases + 1,
-			// 	// dateCreated: item.dateCreated.seconds,
-			// 	// previousEstimate: item.previousEstimate,
-			// 	// currentEstimate: item.currentEstimate,
-			// 	// dateNextPurchased: item.dateNextPurchased,
-			// });
 		}
 	}, [listToken, item]);
 

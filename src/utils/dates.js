@@ -19,13 +19,8 @@ export function getDaysBetweenDates(dateLastPurchased) {
 	 * **/
 	let currentTime = new Date().getTime();
 
-	console.log(currentTime);
+	let diff = currentTime - dateLastPurchased.toMillis();
 
-	// let latestDate = new Date(dateLastPurchased).getTime();
-
-	let diff = currentTime - new Date(dateLastPurchased).getTime();
-	// let diff = currentTime - dateLastPurchased.toMillis();
-
-	let diffDay = Math.round(diff / ONE_DAY_IN_MILLISECONDS);
+	let diffDay = Math.ceil(diff / ONE_DAY_IN_MILLISECONDS);
 	return Math.abs(diffDay);
 }
