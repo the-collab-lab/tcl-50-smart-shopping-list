@@ -12,11 +12,6 @@ export function getFutureDate(offset) {
 }
 
 export function getDaysBetweenDates(dateLastPurchased) {
-	/**
-	 * current date less date item was last purhased
-	 *
-	 *
-	 * **/
 	let currentTime = new Date().getTime();
 
 	let diff = currentTime - dateLastPurchased.toMillis();

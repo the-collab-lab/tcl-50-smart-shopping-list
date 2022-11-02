@@ -12,7 +12,7 @@ export function ListItem({ listToken, item }) {
 		const currentDate = new Date();
 		const currentTime = currentDate.getTime();
 		let timer = currentTime - calcDate;
-		console.log(item.isChecked && timer >= millisecondsIn24hrs);
+
 		if (item.isChecked && timer >= millisecondsIn24hrs) {
 			updateItem(listToken, item, {
 				isChecked: false,
