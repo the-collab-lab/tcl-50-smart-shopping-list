@@ -5,23 +5,24 @@ export function AddItem({ data, listToken }) {
 	const [newItem, setNewItem] = useState('');
 	const [nextPurchaseTime, setPurchaseTime] = useState(7);
 	const [statusMessage, setStatusMessage] = useState('');
+	const [styles, setStyles] = useState(false);
 
 	//map old items and remove punctuation with regex
 	const removePunc = data?.map((item) =>
 		item?.name.toLowerCase().replace(/[^a-zA-Z0-9]/g, ''),
 	);
-	console.log(removePunc);
-	console.log(data);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (newItem.trim().length === 0) {
 			setStatusMessage('Please enter an item name');
+			setStyles(true);
 			return;
 		} else if (
 			removePunc?.includes(newItem?.toLowerCase().replace(/[^a-z0-9]/gi, '')) //check for duplication
 		) {
 			setStatusMessage(`${newItem} already exist`);
+			setStyles(true);
 			return;
 		} else {
 			const item = await addItem(listToken, {
@@ -31,23 +32,11 @@ export function AddItem({ data, listToken }) {
 			setStatusMessage(` ${newItem} successfully added`);
 			setNewItem('');
 			setPurchaseTime(7);
+			setStyles(false);
 			setTimeout(() => {
 				setStatusMessage('');
 			}, 3000);
 		}
-
-		// if (item.id) {
-		// 	setStatusMessage(`${newItem} Successfully Added!`);
-
-		// 	setNewItem('');
-		// 	setPurchaseTime(7);
-
-		// 	setTimeout(() => {
-		// 		setStatusMessage('');
-		// 	}, 3000);
-		// } else {
-		// 	setStatusMessage('Item Not Added!');
-		// }
 	};
 
 	return (
@@ -107,7 +96,9 @@ export function AddItem({ data, listToken }) {
 					</fieldset>
 				</div>
 				<button type="submit">Add Item</button>
-				{statusMessage && <p>{statusMessage}</p>}
+				{statusMessage && (
+					<p style={{ color: styles ? 'red' : 'black' }}>{statusMessage}</p>
+				)}
 			</form>
 		</>
 	);
