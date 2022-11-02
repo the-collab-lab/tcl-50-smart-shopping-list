@@ -6,7 +6,8 @@ import {
 	onSnapshot,
 } from 'firebase/firestore';
 import { db } from './config';
-import { getFutureDate } from '../utils';
+import { getFutureDate, getDaysBetweenDates } from '../utils';
+import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
 
 /**
  * Subscribe to changes on a specific list in the Firestore database (listId), and run a callback (handleSuccess) every time a change happens.
@@ -63,19 +64,51 @@ export async function addItem(listId, { itemName, daysUntilNextPurchase }) {
 		dateLastPurchased: null,
 		dateNextPurchased: getFutureDate(daysUntilNextPurchase),
 		// This property will be used when we build out more of our UI.
+		previousDateLastPurchased: null,
 		isChecked: false,
 		name: itemName,
 		totalPurchases: 0,
+		previousEstimate: null,
+		currentEstimate: parseInt(daysUntilNextPurchase),
 	});
 }
 
 export async function updateItem(listId, itemData) {
 	const docRef = doc(db, listId, itemData.id);
 
+	let daysSinceLastTransaction = itemData.dateLastPurchased
+		? getDaysBetweenDates(itemData.dateLastPurchased)
+		: getDaysBetweenDates(itemData.dateCreated * 1000);
+
+	console.log(itemData.dateCreated);
+
+	console.log(daysSinceLastTransaction);
+	console.log(getDaysBetweenDates(itemData.dateCreated * 1000));
+	console.log(itemData);
+
+	console.log(new Date(itemData.dateLastPurchased).getTime());
+
+	// let currentEstimate = itemData.previousEstimate;
+
+	let newEstimate = calculateEstimate(
+		itemData.previousEstimate,
+		daysSinceLastTransaction,
+		itemData.totalPurchases,
+	);
+
+	console.log(getFutureDate(newEstimate));
+
+	console.log(newEstimate);
+	console.log(itemData);
+
 	await updateDoc(docRef, {
-		isChecked: itemData.isChecked,
-		dateLastPurchased: itemData.dateLastPurchased,
+		isChecked: !itemData.isChecked,
+		dateLastPurchased: new Date(),
+		// previousDateLastPurchased: itemData.dateLastPurchased,
 		totalPurchases: itemData.totalPurchases,
+		// previousEstimate: itemData.currentEstimate,
+		// currentEstimate: newEstimate,
+		// dateNextPurchased: getFutureDate(newEstimate),
 	});
 
 	/**
