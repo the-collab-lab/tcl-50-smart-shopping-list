@@ -1,31 +1,53 @@
 import { useState } from 'react';
 import { addItem } from '../api/firebase';
 
-export function AddItem({ listToken }) {
+export function AddItem({ data, listToken }) {
 	const [newItem, setNewItem] = useState('');
 	const [nextPurchaseTime, setPurchaseTime] = useState(7);
 	const [statusMessage, setStatusMessage] = useState('');
 
+	//map old items and remove punctuation with regex
+	const removePunc = data?.map((item) =>
+		item?.name.toLowerCase().replace(/[^a-zA-Z0-9]/g, ''),
+	);
+	console.log(removePunc);
+	console.log(data);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		const item = await addItem(listToken, {
-			itemName: newItem,
-			daysUntilNextPurchase: nextPurchaseTime,
-		});
-
-		if (item.id) {
-			setStatusMessage(`${newItem} Successfully Added!`);
-
+		if (newItem.trim().length === 0) {
+			setStatusMessage('Please enter an item name');
+			return;
+		} else if (
+			removePunc?.includes(newItem?.toLowerCase().replace(/[^a-z0-9]/gi, '')) //check for duplication
+		) {
+			setStatusMessage(`${newItem} already exist`);
+			return;
+		} else {
+			const item = await addItem(listToken, {
+				itemName: newItem,
+				daysUntilNextPurchase: nextPurchaseTime,
+			});
+			setStatusMessage(` ${newItem} successfully added`);
 			setNewItem('');
 			setPurchaseTime(7);
-
 			setTimeout(() => {
 				setStatusMessage('');
 			}, 3000);
-		} else {
-			setStatusMessage('Item Not Added!');
 		}
+
+		// if (item.id) {
+		// 	setStatusMessage(`${newItem} Successfully Added!`);
+
+		// 	setNewItem('');
+		// 	setPurchaseTime(7);
+
+		// 	setTimeout(() => {
+		// 		setStatusMessage('');
+		// 	}, 3000);
+		// } else {
+		// 	setStatusMessage('Item Not Added!');
+		// }
 	};
 
 	return (
@@ -39,7 +61,7 @@ export function AddItem({ listToken }) {
 						placeholder="Enter Item to Purchase"
 						value={newItem}
 						onChange={(e) => setNewItem(e.target.value)}
-						required
+						//required
 					/>
 				</div>
 
