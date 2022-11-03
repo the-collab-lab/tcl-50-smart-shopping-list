@@ -93,18 +93,26 @@ export function App() {
 							)
 						}
 					/>
-					{listToken && (
-						<>
-							<Route
-								path="/list"
-								element={<List data={data} listToken={listToken} />}
-							/>
-							<Route
-								path="/add-item"
-								element={<AddItem listToken={listToken} />}
-							/>
-						</>
-					)}
+					<Route
+						path="/list"
+						element={
+							!listToken ? (
+								<Navigate to="/" />
+							) : (
+								<List data={data} listToken={listToken} />
+							)
+						}
+					/>
+					<Route
+						path="/add-item"
+						element={
+							!listToken ? (
+								<Navigate to="/" />
+							) : (
+								<AddItem listToken={listToken} />
+							)
+						}
+					/>
 				</Route>
 			</Routes>
 		</Router>
