@@ -75,11 +75,12 @@ export async function addItem(listId, { itemName, daysUntilNextPurchase }) {
 
 export async function updateItem(listId, itemData) {
 	const docRef = doc(db, listId, itemData.id);
-	console.log(itemData);
 	// this variable gets the days since last transaction
-	let daysSinceLastTransaction = itemData.dateLastPurchased
-		? getDaysBetweenDates(itemData?.dateLastPurchased)
-		: getDaysBetweenDates(itemData?.dateCreated);
+	let daysSinceLastTransaction = itemData.totalPurchases
+		? itemData.dateLastPurchased
+			? getDaysBetweenDates(itemData?.dateLastPurchased)
+			: getDaysBetweenDates(itemData?.dateCreated)
+		: null;
 
 	// calculateEstimate is stored in a variable
 	let newEstimate = calculateEstimate(
@@ -89,13 +90,16 @@ export async function updateItem(listId, itemData) {
 	);
 
 	await updateDoc(docRef, {
-		isChecked: !itemData.isChecked,
-		dateLastPurchased: new Date(),
-
-		totalPurchases: itemData.totalPurchases,
-		previousEstimate: itemData.currentEstimate,
-		currentEstimate: newEstimate,
-		dateNextPurchased: getFutureDate(newEstimate),
+		isChecked: itemData.isChecked,
+		...(itemData.totalPurchases && { dateLastPurchased: new Date() }),
+		...(itemData.totalPurchases && { totalPurchases: itemData.totalPurchases }),
+		...(itemData.totalPurchases && {
+			previousEstimate: itemData.currentEstimate,
+		}),
+		...(itemData.totalPurchases && { currentEstimate: newEstimate }),
+		...(itemData.totalPurchases && {
+			dateNextPurchased: getFutureDate(newEstimate),
+		}),
 	});
 
 	/**

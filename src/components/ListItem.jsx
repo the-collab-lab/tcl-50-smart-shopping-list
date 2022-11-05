@@ -14,37 +14,26 @@ export function ListItem({ listToken, item }) {
 		let timer = currentTime - calcDate;
 
 		if (item.isChecked && timer >= millisecondsIn24hrs) {
-			updateItem(listToken, item, {
+			updateItem(listToken, {
+				id: item.id,
 				isChecked: false,
-				dateLastPurchased: item.dateLastPurchased,
 			});
 		}
-	}, []);
+	}, [item]);
 
-	// const handleChange = useCallback(async () => {
-	// 	if (!item.isChecked) {
-	// 		await updateItem(listToken, item, {
-	// 			id: item.id,
-	// 			isChecked: true,
-	// 			dateLastPurchased: new Date(),
-	// 			totalPurchases: item.totalPurchases++,
-	// 		});
-	// 	}
-	// }, [listToken, item]);
-
-	const handleChange = () => {
+	const handleChange = useCallback(async () => {
 		if (!item.isChecked) {
-			updateItem(listToken, {
+			await updateItem(listToken, {
 				id: item.id,
 				isChecked: true,
 				dateLastPurchased: item.dateLastPurchased,
-				totalPurchases: item.totalPurchases++,
+				totalPurchases: item.totalPurchases + 1,
 				dateCreated: item.dateCreated,
 				previousEstimate: item.previousEstimate,
 				currentEstimate: item.currentEstimate,
 			});
 		}
-	};
+	}, [item]);
 
 	return (
 		<>
