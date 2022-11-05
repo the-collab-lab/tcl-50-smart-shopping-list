@@ -23,17 +23,11 @@ export function ListItem({ listToken, item }) {
 
 	const handleChange = useCallback(async () => {
 		if (!item.isChecked) {
-			await updateItem(listToken, {
-				id: item.id,
-				isChecked: true,
-				dateLastPurchased: item.dateLastPurchased,
-				totalPurchases: item.totalPurchases + 1,
-				dateCreated: item.dateCreated,
-				previousEstimate: item.previousEstimate,
-				currentEstimate: item.currentEstimate,
-			});
+			item.isChecked = true;
+			item.totalPurchases += 1;
+			await updateItem(listToken, item);
 		}
-	}, [item]);
+	}, [listToken, item]);
 
 	return (
 		<>
