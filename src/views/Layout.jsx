@@ -2,15 +2,9 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import './Layout.css';
 
-/**
- * TODO: The links defined in this file don't work!
- *
- * Instead of anchor element, they should use a component
- * from `react-router-dom` to navigate to the routes
- * defined in `App.jsx`.
- */
-
 export function Layout() {
+	const currentToken = localStorage.getItem('tcl-shopping-list-token');
+
 	return (
 		<>
 			<div className="Layout">
@@ -21,15 +15,25 @@ export function Layout() {
 					<Outlet />
 				</main>
 				<nav className="Nav">
-					<NavLink to="/" className="Nav-link">
-						Home
-					</NavLink>
-					<NavLink to="/list" className="Nav-link">
-						List
-					</NavLink>
-					<NavLink to="/add-item" className="Nav-link">
-						Add Item
-					</NavLink>
+					{/* I commented this out. It doesnt do anything for now. 
+					We can decide on what happens when a  user clicks the home button */}
+
+					{/* {!data.length ? (
+						<NavLink to="/" className="Nav-link">
+							Home
+						</NavLink>
+					) : null} */}
+
+					{currentToken ? (
+						<>
+							<NavLink to="/list" className="Nav-link">
+								List
+							</NavLink>
+							<NavLink to="/add-item" className="Nav-link">
+								Add Item
+							</NavLink>
+						</>
+					) : null}
 				</nav>
 			</div>
 		</>
