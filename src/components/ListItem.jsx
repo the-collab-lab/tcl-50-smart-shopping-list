@@ -21,16 +21,30 @@ export function ListItem({ listToken, item }) {
 		}
 	}, []);
 
-	const handleChange = useCallback(async () => {
+	// const handleChange = useCallback(async () => {
+	// 	if (!item.isChecked) {
+	// 		await updateItem(listToken, item, {
+	// 			id: item.id,
+	// 			isChecked: true,
+	// 			dateLastPurchased: new Date(),
+	// 			totalPurchases: item.totalPurchases++,
+	// 		});
+	// 	}
+	// }, [listToken, item]);
+
+	const handleChange = () => {
 		if (!item.isChecked) {
-			await updateItem(listToken, item, {
+			updateItem(listToken, {
 				id: item.id,
 				isChecked: true,
 				dateLastPurchased: item.dateLastPurchased,
-				totalPurchases: item.totalPurchases,
+				totalPurchases: item.totalPurchases++,
+				dateCreated: item.dateCreated,
+				previousEstimate: item.previousEstimate,
+				currentEstimate: item.currentEstimate,
 			});
 		}
-	}, [listToken, item]);
+	};
 
 	return (
 		<>
