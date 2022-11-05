@@ -2,7 +2,9 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import './Layout.css';
 
-export function Layout({ data }) {
+export function Layout() {
+	const currentToken = localStorage.getItem('tcl-shopping-list-token');
+
 	return (
 		<>
 			<div className="Layout">
@@ -13,12 +15,16 @@ export function Layout({ data }) {
 					<Outlet />
 				</main>
 				<nav className="Nav">
-					{!data.length ? (
+					{/* I commented this out. It doesnt do anything for now. 
+					We can decide on what happens when a  user clicks the home button */}
+
+					{/* {!data.length ? (
 						<NavLink to="/" className="Nav-link">
 							Home
 						</NavLink>
-					) : null}
-					{data.length ? (
+					) : null} */}
+
+					{currentToken ? (
 						<>
 							<NavLink to="/list" className="Nav-link">
 								List
