@@ -12,24 +12,20 @@ export function ListItem({ listToken, item }) {
 		const currentDate = new Date();
 		const currentTime = currentDate.getTime();
 		let timer = currentTime - calcDate;
+
 		if (item.isChecked && timer >= millisecondsIn24hrs) {
 			updateItem(listToken, {
 				id: item.id,
 				isChecked: false,
-				dateLastPurchased: item.dateLastPurchased,
-				totalPurchases: item.totalPurchases,
 			});
 		}
-	}, []);
+	}, [item]);
 
 	const handleChange = useCallback(async () => {
-		if (item.isChecked === false) {
-			await updateItem(listToken, {
-				id: item.id,
-				isChecked: !item.isChecked,
-				dateLastPurchased: new Date().getTime(),
-				totalPurchases: item.totalPurchases + 1,
-			});
+		if (!item.isChecked) {
+			item.isChecked = true;
+			item.totalPurchases += 1;
+			await updateItem(listToken, item);
 		}
 	}, [listToken, item]);
 
