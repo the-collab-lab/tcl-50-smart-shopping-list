@@ -34,6 +34,7 @@ export function ListItem({ listToken, item }) {
 			<li className="ListItem">
 				<label htmlFor={item.id}>
 					<input
+						// style={{accentColor: item.isChecked ? "red" : ''}}
 						type="checkbox"
 						id={item.id}
 						checked={item.isChecked}

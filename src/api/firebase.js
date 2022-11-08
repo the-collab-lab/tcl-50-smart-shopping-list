@@ -4,6 +4,8 @@ import {
 	updateDoc,
 	collection,
 	onSnapshot,
+	query,
+	orderBy,
 } from 'firebase/firestore';
 import { db } from './config';
 import { getFutureDate, getDaysBetweenDates } from '../utils';
@@ -109,6 +111,11 @@ export async function updateItem(listId, itemData) {
 	 * this function must accept!
 **/
 }
+
+// export function comparePurchaseUrgency() {
+// 	const q = query(citiesRef, orderBy("name"), orderBy("population", "desc"));
+// 	return q;
+// }
 
 // export async function updateItem(db, listId, itemData, ) {
 // 	const docRef = doc(db, itemData, listId);
