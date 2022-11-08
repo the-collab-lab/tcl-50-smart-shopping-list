@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
+//import comparePurchaseUrgency function, pass the colour down to ListItem component in return
+
 export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');

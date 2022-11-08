@@ -6,6 +6,7 @@ import {
 	onSnapshot,
 	query,
 	orderBy,
+	where,
 } from 'firebase/firestore';
 import { db } from './config';
 import { getFutureDate, getDaysBetweenDates } from '../utils';
@@ -120,9 +121,16 @@ export async function updateItem(listId, itemData) {
 // 	return [...soon, ...kindofsoon, ...notsoon, ];
 // }
 
+// export function comparePurchaseUrgency(listref) {
+// 	const soon = query(listref, where('dateNextPurchased', '>=', '7'), orderBy('dateNextPurchased'));
+// 	const kindOfSoon = query(listref, where('dateNextPurchased', '>=', '14'), orderBy('dateNextPurchased'));
+// 	const notSoSoon = query(listref, where('dateNextPurchased', '>=', '30'), orderBy('dateNextPurchased'));
+
+// 	return [...soon, ...kindOfSoon, ...notSoSoon ];
+// }
+
 export function comparePurchaseUrgency(listref) {
-	// for multiple criteria, use => const q = query(citiesRef, orderBy("state"), orderBy("population", "desc"));
-	const q = query(listref, orderBy('name'));
+	const q = query(listref, orderBy('dateNextPurchased'));
 
 	return q;
 }
