@@ -20,7 +20,7 @@ import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
  * @see: https://firebase.google.com/docs/firestore/query-data/listen
  */
 export function streamListItems(listId, handleSuccess) {
-	const listCollectionRef = collection(db, listId);
+	const listCollectionRef = comparePurchaseUrgency(collection(db, listId));
 	return onSnapshot(listCollectionRef, handleSuccess);
 }
 
@@ -112,10 +112,20 @@ export async function updateItem(listId, itemData) {
 **/
 }
 
-// export function comparePurchaseUrgency() {
-// 	const q = query(citiesRef, orderBy("name"), orderBy("population", "desc"));
-// 	return q;
+//setting up sort criteria for items
+// export function comparePurchaseUrgency(listref) {
+// 	// for multiple criteria, use => const q = query(citiesRef, orderBy("state"), orderBy("population", "desc"));
+// 	const q = query(listref, where('dateNextPurchased', '>=', '7'), orderBy('name'));
+
+// 	return [...soon, ...kindofsoon, ...notsoon, ];
 // }
+
+export function comparePurchaseUrgency(listref) {
+	// for multiple criteria, use => const q = query(citiesRef, orderBy("state"), orderBy("population", "desc"));
+	const q = query(listref, orderBy('name'));
+
+	return q;
+}
 
 // export async function updateItem(db, listId, itemData, ) {
 // 	const docRef = doc(db, itemData, listId);
