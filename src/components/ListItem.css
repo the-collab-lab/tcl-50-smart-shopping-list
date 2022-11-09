@@ -3,8 +3,6 @@
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
-	width: 200px;
-	height: 100px;
 }
 
 .ListItem-checkbox {
@@ -13,20 +11,4 @@
 
 .ListItem-label {
 	margin-left: 0.2em;
-}
-
-input[type='checkbox'] {
-	accent-color: red;
-}
-.soon {
-	background-color: blue;
-}
-.not-soon {
-	background-color: red;
-}
-.kind-of-soon {
-	background-color: yellow;
-}
-.inactive {
-	background-color: gray;
 }

@@ -29,25 +29,37 @@ export function ListItem({ listToken, item }) {
 		}
 	}, [listToken, item]);
 
-	let colors;
-	const bgColr = () => {
+	const getTextColor = () => {
 		if (item?.currentEstimate <= 7) {
-			return (colors = 'blue');
+			return 'red';
 		} else if (item?.currentEstimate > 7 && item?.currentEstimate === 30) {
-			return (colors = 'green');
+			return 'green';
 		} else if (item?.currentEstimate >= 30) {
-			return (colors = 'yellow');
+			return 'blue';
 		} else if (item?.currentEstimate > 60) {
-			return (colors = 'gray');
+			return 'gray';
+		}
+	};
+
+	const getAria = () => {
+		if (item?.currentEstimate <= 7) {
+			return 'soon';
+		} else if (item?.currentEstimate > 7 && item?.currentEstimate === 30) {
+			return 'kind of soon';
+		} else if (item?.currentEstimate >= 30) {
+			return 'not so soon';
+		} else if (item?.currentEstimate > 60) {
+			return 'inactive';
 		}
 	};
 
 	return (
 		<>
-			<li className="ListItem" style={{ backgroundColor: bgColr() }}>
+			<li className="ListItem" style={{ color: getTextColor() }}>
 				<label htmlFor={item.id}>
 					<input
 						type="checkbox"
+						aria-label={getAria()}
 						id={item.id}
 						checked={item.isChecked}
 						onChange={handleChange}

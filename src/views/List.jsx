@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
-//pass the colour down to ListItem component in return
-
 export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
