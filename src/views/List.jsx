@@ -30,8 +30,6 @@ export function List({ data, listToken }) {
 			item?.name.toLowerCase().includes(searchItem.toLowerCase()),
 		);
 
-	console.log(filteredItems);
-
 	return (
 		<>
 			{data.length ? (
