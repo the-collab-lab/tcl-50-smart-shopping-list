@@ -29,12 +29,24 @@ export function ListItem({ listToken, item }) {
 		}
 	}, [listToken, item]);
 
+	let colors;
+	const bgColr = () => {
+		if (item?.currentEstimate <= 7) {
+			return (colors = 'blue');
+		} else if (item?.currentEstimate > 7 && item?.currentEstimate === 30) {
+			return (colors = 'green');
+		} else if (item?.currentEstimate >= 30) {
+			return (colors = 'yellow');
+		} else if (item?.currentEstimate > 60) {
+			return (colors = 'gray');
+		}
+	};
+
 	return (
 		<>
-			<li className="ListItem">
+			<li className="ListItem" style={{ backgroundColor: bgColr() }}>
 				<label htmlFor={item.id}>
 					<input
-						// style={{accentColor: item.isChecked ? "red" : ''}}
 						type="checkbox"
 						id={item.id}
 						checked={item.isChecked}
