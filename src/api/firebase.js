@@ -4,9 +4,6 @@ import {
 	updateDoc,
 	collection,
 	onSnapshot,
-	query,
-	orderBy,
-	where,
 } from 'firebase/firestore';
 import { db } from './config';
 import { getFutureDate, getDaysBetweenDates } from '../utils';
@@ -21,7 +18,7 @@ import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
  * @see: https://firebase.google.com/docs/firestore/query-data/listen
  */
 export function streamListItems(listId, handleSuccess) {
-	const listCollectionRef = comparePurchaseUrgency(collection(db, listId));
+	const listCollectionRef = collection(db, listId);
 	return onSnapshot(listCollectionRef, handleSuccess);
 }
 
@@ -112,32 +109,6 @@ export async function updateItem(listId, itemData) {
 	 * this function must accept!
 **/
 }
-
-//setting up sort criteria for items
-
-// export function comparePurchaseUrgency(listref) {
-// 	const soon = query(listref, where('currentEstimate', "<", 8), orderBy('currentEstimate'));
-// 	const kindOfSoon = query(listref, where('currentEstimate', "<", 15), orderBy('currentEstimate'));
-// 	const notSoon = query(listref, where('currentEstimate', "<", 31), orderBy('currentEstimate'));
-
-// 	return [...soon, ...kindOfSoon, ...notSoon];
-// }
-
-export function comparePurchaseUrgency(listref) {
-	const sorted = query(
-		listref,
-		orderBy('currentEstimate', 'asc'),
-		orderBy('name', 'asc'),
-	);
-	return sorted;
-}
-
-// export function comparePurchaseUrgency(listref) {
-// 	const soon = query(listref, where('currentEstimate', "<", 8));
-// 	const kindOfSoon = query(listref, where('currentEstimate', "<", 15));
-// 	const notSoon = query(listref, where('currentEstimate', "<", 31));
-// 	return [{soon, kindOfSoon, notSoon}];
-// }
 
 // export async function updateItem(db, listId, itemData, ) {
 // 	const docRef = doc(db, itemData, listId);
