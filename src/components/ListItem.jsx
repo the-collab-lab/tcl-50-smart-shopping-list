@@ -32,9 +32,9 @@ export function ListItem({ listToken, item }) {
 	const getTextColor = () => {
 		if (item?.currentEstimate <= 7) {
 			return 'red';
-		} else if (item?.currentEstimate > 7 && item?.currentEstimate === 30) {
+		} else if (item?.currentEstimate > 7 && item?.currentEstimate <= 30) {
 			return 'green';
-		} else if (item?.currentEstimate >= 30) {
+		} else if (item?.currentEstimate > 30 && item?.currentEstimate <= 60) {
 			return 'blue';
 		} else if (item?.currentEstimate > 60) {
 			return 'gray';
@@ -44,15 +44,14 @@ export function ListItem({ listToken, item }) {
 	const getAria = () => {
 		if (item?.currentEstimate <= 7) {
 			return 'soon';
-		} else if (item?.currentEstimate > 7 && item?.currentEstimate === 30) {
+		} else if (item?.currentEstimate > 7 && item?.currentEstimate <= 30) {
 			return 'kind of soon';
-		} else if (item?.currentEstimate >= 30) {
+		} else if (item?.currentEstimate > 30 && item?.currentEstimate <= 60) {
 			return 'not so soon';
 		} else if (item?.currentEstimate > 60) {
 			return 'inactive';
 		}
 	};
-
 	return (
 		<>
 			<li className="ListItem" style={{ color: getTextColor() }}>
