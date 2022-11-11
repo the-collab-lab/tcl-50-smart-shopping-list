@@ -64,7 +64,7 @@ export function ListItem({ listToken, item }) {
 						onChange={handleChange}
 						name={item.name}
 					/>
-					{item.name}
+					{item.name} - {getAria()}
 				</label>
 			</li>
 		</>
