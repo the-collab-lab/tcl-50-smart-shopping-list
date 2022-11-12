@@ -1,6 +1,6 @@
 import './ListItem.css';
 import { useEffect, useCallback } from 'react';
-import { updateItem } from '../api/firebase';
+import { deleteItem, updateItem } from '../api/firebase';
 
 const millisecondsIn24hrs = 86400000;
 
@@ -29,6 +29,7 @@ export function ListItem({ listToken, item }) {
 		}
 	}, [listToken, item]);
 
+
 	const getTextColor = () => {
 		if (item?.currentEstimate <= 7) {
 			return 'red';
@@ -52,6 +53,16 @@ export function ListItem({ listToken, item }) {
 			return 'inactive';
 		}
 	};
+
+	const handleDelete = async (listToken, id) => {
+		const isConfirmed = window.confirm(`Do you want to delete ${item.name}`);
+
+		if (isConfirmed) {
+			await deleteItem(listToken, id);
+		}
+	};
+
+
 	return (
 		<>
 			<li className="ListItem" style={{ color: getTextColor() }}>
@@ -66,6 +77,7 @@ export function ListItem({ listToken, item }) {
 					/>
 					{item.name} - {getAria()}
 				</label>
+				<button onClick={() => handleDelete(listToken, item.id)}>Delete</button>
 			</li>
 		</>
 	);
