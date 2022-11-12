@@ -6,9 +6,29 @@ export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
 
-	const filteredItems = data?.filter((item) =>
-		item?.name.toLowerCase().includes(searchItem.toLowerCase()),
-	);
+	//sorted by ascending currentEstimate (days until next purchase) & then alphabetically
+	function comparePurchaseUrgency(a, b) {
+		if (a.currentEstimate < b.currentEstimate) {
+			return -1;
+		}
+		if (a.currentEstimate > b.currentEstimate) {
+			return 1;
+		} else {
+			if (a.name < b.name) {
+				return -1;
+			} else if (a.name > b.name) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+	}
+
+	const filteredItems = data
+		?.sort(comparePurchaseUrgency)
+		?.filter((item) =>
+			item?.name.toLowerCase().includes(searchItem.toLowerCase()),
+		);
 
 	return (
 		<>
