@@ -109,7 +109,7 @@ export function App() {
 							!listToken ? (
 								<Navigate to="/" />
 							) : (
-								<AddItem listToken={listToken} />
+								<AddItem listToken={listToken} data={data} />
 							)
 						}
 					/>
