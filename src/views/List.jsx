@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
-export function List({ data, listToken }) {
+export function List({ data, listToken, isLoading }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
 
@@ -32,7 +32,9 @@ export function List({ data, listToken }) {
 
 	return (
 		<>
-			{data.length ? (
+			{isLoading ? (
+				'Loading...'
+			) : data.length ? (
 				<>
 					<form>
 						<label htmlFor="filter_items">Filter items </label>

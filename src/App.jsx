@@ -13,6 +13,7 @@ import { useStateWithStorage } from './utils';
 
 export function App() {
 	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	/**
 	 * Here, we're using a custom hook to create `listToken` and a function
@@ -72,6 +73,7 @@ export function App() {
 
 			/** Finally, we update our React state. */
 			setData(nextData);
+			setIsLoading(false);
 		});
 	}, [listToken]);
 
@@ -99,7 +101,7 @@ export function App() {
 							!listToken ? (
 								<Navigate to="/" />
 							) : (
-								<List data={data} listToken={listToken} />
+								<List data={data} listToken={listToken} isLoading={isLoading} />
 							)
 						}
 					/>
