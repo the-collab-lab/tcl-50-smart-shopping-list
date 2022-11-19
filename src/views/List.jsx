@@ -5,6 +5,7 @@ import { ListItem } from '../components';
 export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
+	const [copy, setCopy] = useState('Copy Token');
 
 	//sorted by ascending currentEstimate (days until next purchase) & then alphabetically
 	function comparePurchaseUrgency(a, b) {
@@ -30,10 +31,24 @@ export function List({ data, listToken }) {
 			item?.name.toLowerCase().includes(searchItem.toLowerCase()),
 		);
 
+	const copyToken = async () => {
+		await window.navigator.clipboard.writeText(listToken);
+		setTimeout(() => {
+			setCopy('Copy Token');
+		}, 3000);
+
+		setCopy('Copied!');
+	};
 	return (
 		<>
 			{data.length ? (
 				<>
+					{listToken && (
+						<div>
+							<p>Your list : {listToken}</p>
+							<button onClick={copyToken}>{copy}</button>
+						</div>
+					)}
 					<form>
 						<label htmlFor="filter_items">Filter items </label>
 						<input
