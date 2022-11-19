@@ -32,12 +32,19 @@ export function List({ data, listToken }) {
 		);
 
 	const copyToken = async () => {
-		await window.navigator.clipboard.writeText(listToken);
-		setTimeout(() => {
-			setCopy('Copy Token');
-		}, 3000);
+		try {
+			await window.navigator.clipboard.writeText(listToken);
+			setTimeout(() => {
+				setCopy('Copy Token');
+			}, 3000);
 
-		setCopy('Copied!');
+			setCopy('Copied!');
+		} catch (error) {
+			setTimeout(() => {
+				setCopy('Copy Token');
+			}, 3000);
+			setCopy('Error!, Try again.');
+		}
 	};
 	return (
 		<>
