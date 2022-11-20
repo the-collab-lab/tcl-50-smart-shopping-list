@@ -5,6 +5,7 @@ import { ListItem } from '../components';
 export function List({ data, listToken }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
+	const [copy, setCopy] = useState('Copy Token');
 
 	//This function redirect to home page onClick and clears token from local storage
 
@@ -36,10 +37,31 @@ export function List({ data, listToken }) {
 			item?.name.toLowerCase().includes(searchItem.toLowerCase()),
 		);
 
+	const copyToken = async () => {
+		try {
+			await window.navigator.clipboard.writeText(listToken);
+			setTimeout(() => {
+				setCopy('Copy Token');
+			}, 3000);
+
+			setCopy('Copied!');
+		} catch (error) {
+			setTimeout(() => {
+				setCopy('Copy Token');
+			}, 3000);
+			setCopy('Error!, Try again.');
+		}
+	};
 	return (
 		<>
 			{data.length ? (
 				<>
+					{listToken && (
+						<div>
+							<p>Your list : {listToken}</p>
+							<button onClick={copyToken}>{copy}</button>
+						</div>
+					)}
 					<form>
 						<label htmlFor="filter_items">Filter items </label>
 						<input
