@@ -19,7 +19,7 @@ export function ListItem({ listToken, item }) {
 				isChecked: false,
 			});
 		}
-	}, [item]);
+	}, [item, listToken]);
 
 	const handleChange = useCallback(async () => {
 		if (!item.isChecked) {
@@ -28,7 +28,6 @@ export function ListItem({ listToken, item }) {
 			await updateItem(listToken, item);
 		}
 	}, [listToken, item]);
-
 
 	const getTextColor = () => {
 		if (item?.currentEstimate <= 7) {
@@ -61,7 +60,6 @@ export function ListItem({ listToken, item }) {
 			await deleteItem(listToken, id);
 		}
 	};
-
 
 	return (
 		<>

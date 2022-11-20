@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ListItem } from '../components';
 
-export function List({ data, listToken }) {
+export function List({ data, listToken, isLoading }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
 	const [copy, setCopy] = useState('Copy Token');
@@ -54,7 +54,9 @@ export function List({ data, listToken }) {
 	};
 	return (
 		<>
-			{data.length ? (
+			{isLoading ? (
+				'Loading...'
+			) : data.length ? (
 				<>
 					{listToken && (
 						<div>
@@ -77,6 +79,9 @@ export function List({ data, listToken }) {
 							<ListItem item={item} key={item.id} listToken={listToken} />
 						))}
 					</ul>
+					<button className="goToAnotherList" onClick={goToAnotherList}>
+						Go to another list
+					</button>
 				</>
 			) : (
 				<>
@@ -84,11 +89,6 @@ export function List({ data, listToken }) {
 					<button onClick={() => navigate('/add-item')}>Add Item</button>
 				</>
 			)}
-			<>
-				<button className="goToAnotherList" onClick={goToAnotherList}>
-					Go to another list
-				</button>
-			</>
 		</>
 	);
 }
