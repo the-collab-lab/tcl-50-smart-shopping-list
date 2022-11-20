@@ -15,10 +15,10 @@ export function Layout() {
 					<Outlet />
 				</main>
 				<nav className="Nav">
-					{/* I commented this out. It doesnt do anything for now. 
+					{/* I commented this out. It doesnt do anything for now.
 					We can decide on what happens when a  user clicks the home button */}
 
-					{/* {!data.length ? (
+					{/* {!currentToken ? (
 						<NavLink to="/" className="Nav-link">
 							Home
 						</NavLink>

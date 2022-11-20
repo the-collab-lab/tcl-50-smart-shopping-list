@@ -6,6 +6,12 @@ export function List({ data, listToken, isLoading }) {
 	const navigate = useNavigate();
 	const [searchItem, setSearchItem] = useState('');
 
+	//This function redirect to home page onClick and clears token from local storage
+
+	const goToAnotherList = () => {
+		localStorage.removeItem('tcl-shopping-list-token');
+		window.location.reload();
+	};
 	//sorted by ascending currentEstimate (days until next purchase) & then alphabetically
 	function comparePurchaseUrgency(a, b) {
 		if (a.currentEstimate < b.currentEstimate) {
@@ -58,6 +64,11 @@ export function List({ data, listToken, isLoading }) {
 					<button onClick={() => navigate('/add-item')}>Add Item</button>
 				</>
 			)}
+			<>
+				<button className="goToAnotherList" onClick={goToAnotherList}>
+					Go to another list
+				</button>
+			</>
 		</>
 	);
 }
