@@ -79,6 +79,9 @@ export function List({ data, listToken, isLoading }) {
 							<ListItem item={item} key={item.id} listToken={listToken} />
 						))}
 					</ul>
+					<button className="goToAnotherList" onClick={goToAnotherList}>
+						Go to another list
+					</button>
 				</>
 			) : (
 				<>
@@ -86,11 +89,6 @@ export function List({ data, listToken, isLoading }) {
 					<button onClick={() => navigate('/add-item')}>Add Item</button>
 				</>
 			)}
-			<>
-				<button className="goToAnotherList" onClick={goToAnotherList}>
-					Go to another list
-				</button>
-			</>
 		</>
 	);
 }
