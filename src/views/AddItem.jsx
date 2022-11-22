@@ -53,7 +53,7 @@ export function AddItem({ data, listToken }) {
 	return (
 		<>
 			<form
-				className=" md:h-fit sm:w-[360px] sm:flex sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
+				className="md:h-fit sm:w-[360px] sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
 				onSubmit={handleSubmit}
 			>
 				<div>
