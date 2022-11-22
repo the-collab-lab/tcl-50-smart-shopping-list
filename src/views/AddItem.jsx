@@ -71,7 +71,6 @@ export function AddItem({ data, listToken }) {
 						placeholder="Enter Item to Purchase"
 						value={newItem}
 						onChange={(e) => setNewItem(e.target.value)}
-						//required
 					/>
 				</div>
 
