@@ -53,19 +53,19 @@ export function AddItem({ data, listToken }) {
 	return (
 		<>
 			<form
-				className="md:h-fit sm:w-[360px] sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
+				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
 				onSubmit={handleSubmit}
 			>
 				<div>
 					<label
-						className="md:text-xl w-[92px]  h-[30px] font-normal text-md leading-7 text-black"
+						className="md:text-xl w-[92px]  h-[30px] font-normal text-md leading-7"
 						htmlFor="name"
 					>
 						Item Name
 					</label>
 					<br />
 					<input
-						className="md:w-[426px] md:mt-5 md:mb-8 md:p-4 md:h-[46px] rounded-xl md:border-solid md:border-2 md:border-black bg-white sm:w-[243px] sm:h-[46px] border-solid border-1 border-black rounded-xl"
+						className="md:w-[426px] mt-5 mb-5 md:mb-8 p-3 md:h-[46px] rounded-xl md:border-solid md:border-2 md:border-black bg-white sm:w-[243px] sm:h-[46px] border-solid border-1 border-black rounded-xl"
 						type="text"
 						id="name"
 						placeholder="Enter Item to Purchase"
@@ -77,7 +77,7 @@ export function AddItem({ data, listToken }) {
 
 				<div>
 					<fieldset>
-						<legend className="md:mt-5 md:text-xl sm:w-[253px] sm:h-[26px] font-bold text-base leading-[26px] text-black">
+						<legend className="md:mt-5 md:text-xl sm:w-[253px] sm:h-[26px] font-bold leading-[26px]">
 							How soon will you buy this again?
 						</legend>
 
@@ -137,7 +137,7 @@ export function AddItem({ data, listToken }) {
 					</fieldset>
 				</div>
 				<button
-					className="sm:w-[117px] md:w-[110px] md:h-[38px] sm:h-[46px] md:mt-8 md:text-xl bg-[#C2410C] rounded-md text-bold text-base font-bold leading-[22px] text-white "
+					className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold text-base font-bold leading-[22px] text-white "
 					type="submit"
 				>
 					Add Item
