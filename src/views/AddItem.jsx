@@ -65,7 +65,7 @@ export function AddItem({ data, listToken }) {
 					</label>
 					<br />
 					<input
-						className="md:w-[426px] mt-4 mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white sm:w-[243px] sm:h-[46px] rounded-xl"
+						className="md:w-[375px] mt-4 mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white rounded-xl"
 						type="text"
 						id="name"
 						placeholder="Enter Item to Purchase"
