@@ -56,9 +56,9 @@ export function AddItem({ data, listToken }) {
 				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
 				onSubmit={handleSubmit}
 			>
-				<div>
+				<div className="text-center sm:text-left">
 					<label
-						className="w-[92px] h-[30px] font-normal leading-7"
+						className="w-[92px] h-[30px]  font-normal leading-7"
 						htmlFor="name"
 					>
 						Item Name
@@ -74,9 +74,9 @@ export function AddItem({ data, listToken }) {
 					/>
 				</div>
 
-				<div>
+				<div className="mt-5">
 					<fieldset>
-						<legend className="md:mt-5 font-bold leading-[26px]">
+						<legend className="text-center sm:text-left mt-5 font-bold leading-[26px]">
 							How soon will you buy this again?
 						</legend>
 
