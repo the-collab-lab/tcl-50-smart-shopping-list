@@ -136,7 +136,7 @@ export function AddItem({ data, listToken }) {
 					</fieldset>
 				</div>
 				<button
-					className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold text-base font-bold leading-[22px] text-white "
+					className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold font-bold leading-[22px] text-white "
 					type="submit"
 				>
 					Add Item
