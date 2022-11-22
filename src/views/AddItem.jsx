@@ -58,14 +58,14 @@ export function AddItem({ data, listToken }) {
 			>
 				<div className="text-center sm:text-left">
 					<label
-						className="w-[92px] h-[30px]  font-normal leading-7"
+						className="w-[92px] h-[30px] font-normal leading-7"
 						htmlFor="name"
 					>
 						Item Name
 					</label>
 					<br />
 					<input
-						className="md:w-[426px] mt-5 mb-5 md:mb-8 p-3 md:h-[46px] rounded-xl md:border-solid md:border-2 md:border-black bg-white sm:w-[243px] sm:h-[46px] border-solid border-1 border-black rounded-xl"
+						className="md:w-[426px] mt-4 mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white sm:w-[243px] sm:h-[46px] rounded-xl"
 						type="text"
 						id="name"
 						placeholder="Enter Item to Purchase"
@@ -74,12 +74,11 @@ export function AddItem({ data, listToken }) {
 					/>
 				</div>
 
-				<div className="mt-5">
+				<div className="mt-5 flex flex-col items-center ">
 					<fieldset>
-						<legend className="text-center sm:text-left mt-5 font-bold leading-[26px]">
+						<legend className=" mt-5 font-bold leading-[26px]">
 							How soon will you buy this again?
 						</legend>
-
 						<div className="mt-5">
 							<input
 								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
@@ -135,6 +134,7 @@ export function AddItem({ data, listToken }) {
 						</div>
 					</fieldset>
 				</div>
+
 				<div className="flex flex-col items-center">
 					<button
 						className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold font-bold leading-[22px] text-white "
