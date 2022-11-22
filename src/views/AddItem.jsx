@@ -53,7 +53,7 @@ export function AddItem({ data, listToken }) {
 	return (
 		<>
 			<form
-				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:flex-col sm:items-center sm:justify-center sm:content-center sm:h-[800px] "
+				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:h-[800px] "
 				onSubmit={handleSubmit}
 			>
 				<div className="text-center sm:text-left">
@@ -137,7 +137,7 @@ export function AddItem({ data, listToken }) {
 
 				<div className="flex flex-col items-center">
 					<button
-						className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold font-bold leading-[22px] text-white "
+						className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md font-bold leading-[22px] text-white"
 						type="submit"
 					>
 						Add Item
