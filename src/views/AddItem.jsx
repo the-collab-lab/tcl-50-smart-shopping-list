@@ -58,7 +58,7 @@ export function AddItem({ data, listToken }) {
 			>
 				<div>
 					<label
-						className="md:text-xl w-[92px]  h-[30px] font-normal text-md leading-7"
+						className="w-[92px] h-[30px] font-normal leading-7"
 						htmlFor="name"
 					>
 						Item Name
@@ -77,7 +77,7 @@ export function AddItem({ data, listToken }) {
 
 				<div>
 					<fieldset>
-						<legend className="md:mt-5 md:text-xl sm:w-[253px] sm:h-[26px] font-bold leading-[26px]">
+						<legend className="md:mt-5 font-bold leading-[26px]">
 							How soon will you buy this again?
 						</legend>
 
@@ -92,7 +92,7 @@ export function AddItem({ data, listToken }) {
 								checked={7 === parseInt(nextPurchaseTime)}
 							/>
 							<label
-								className="ml-2 md:text-xl font-normal text-sm md:leading-5 sm:leading-[22px]"
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
 								htmlFor="soon"
 							>
 								Soon
@@ -110,7 +110,7 @@ export function AddItem({ data, listToken }) {
 								checked={14 === parseInt(nextPurchaseTime)}
 							/>
 							<label
-								className="md:text-xl ml-2 font-normal text-sm md:leading-5 sm:leading-[22px]"
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
 								htmlFor="kind_of_soon"
 							>
 								Kind of Soon
@@ -128,7 +128,7 @@ export function AddItem({ data, listToken }) {
 								checked={30 === parseInt(nextPurchaseTime)}
 							/>
 							<label
-								className="md:text-xl ml-2 font-normal text-sm md:leading-5 sm:leading-[22px]"
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
 								htmlFor="not_soon"
 							>
 								Not Soon
