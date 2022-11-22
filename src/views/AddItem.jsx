@@ -80,7 +80,7 @@ export function AddItem({ data, listToken }) {
 							How soon will you buy this again?
 						</legend>
 
-						<div>
+						<div className="mt-5">
 							<input
 								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
@@ -98,7 +98,7 @@ export function AddItem({ data, listToken }) {
 							</label>
 						</div>
 
-						<div>
+						<div className="mt-5">
 							<input
 								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
@@ -116,7 +116,7 @@ export function AddItem({ data, listToken }) {
 							</label>
 						</div>
 
-						<div>
+						<div className="mt-5">
 							<input
 								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
