@@ -135,12 +135,14 @@ export function AddItem({ data, listToken }) {
 						</div>
 					</fieldset>
 				</div>
-				<button
-					className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold font-bold leading-[22px] text-white "
-					type="submit"
-				>
-					Add Item
-				</button>
+				<div className="flex flex-col items-center">
+					<button
+						className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md text-bold font-bold leading-[22px] text-white "
+						type="submit"
+					>
+						Add Item
+					</button>
+				</div>
 				{statusMessage && <p className="mt-6">{statusMessage}</p>}
 			</form>
 		</>
