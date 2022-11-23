@@ -52,25 +52,36 @@ export function AddItem({ data, listToken }) {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="name">Item Name</label>
+			<form
+				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:h-[800px] "
+				onSubmit={handleSubmit}
+			>
+				<div className="text-center sm:text-left">
+					<label
+						className="w-[92px] h-[30px] font-normal leading-7"
+						htmlFor="name"
+					>
+						Item Name
+					</label>
+					<br />
 					<input
+						className="md:w-[375px] mt-4 mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white rounded-xl"
 						type="text"
 						id="name"
 						placeholder="Enter Item to Purchase"
 						value={newItem}
 						onChange={(e) => setNewItem(e.target.value)}
-						//required
 					/>
 				</div>
 
-				<div>
+				<div className="mt-5 flex flex-col items-center ">
 					<fieldset>
-						<legend>How soon will you buy this again?</legend>
-
-						<div>
+						<legend className=" mt-5 font-bold leading-[26px]">
+							How soon will you buy this again?
+						</legend>
+						<div className="mt-5">
 							<input
+								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
 								id="soon"
 								name="duration"
@@ -78,11 +89,17 @@ export function AddItem({ data, listToken }) {
 								value={7}
 								checked={7 === parseInt(nextPurchaseTime)}
 							/>
-							<label htmlFor="soon">Soon</label>
+							<label
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
+								htmlFor="soon"
+							>
+								Soon
+							</label>
 						</div>
 
-						<div>
+						<div className="mt-5">
 							<input
+								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
 								id="kind_of_soon"
 								name="duration"
@@ -90,11 +107,17 @@ export function AddItem({ data, listToken }) {
 								onChange={(e) => setPurchaseTime(e.target.value)}
 								checked={14 === parseInt(nextPurchaseTime)}
 							/>
-							<label htmlFor="kind_of_soon">Kind of Soon</label>
+							<label
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
+								htmlFor="kind_of_soon"
+							>
+								Kind of Soon
+							</label>
 						</div>
 
-						<div>
+						<div className="mt-5">
 							<input
+								className="w-5 h-5 bg-[#D9D9D9] border-solid border-1 border-black"
 								type="radio"
 								id="not_soon"
 								name="duration"
@@ -102,12 +125,25 @@ export function AddItem({ data, listToken }) {
 								onChange={(e) => setPurchaseTime(e.target.value)}
 								checked={30 === parseInt(nextPurchaseTime)}
 							/>
-							<label htmlFor="not_soon">Not Soon</label>
+							<label
+								className="ml-2 font-normal md:leading-5 sm:leading-[22px]"
+								htmlFor="not_soon"
+							>
+								Not Soon
+							</label>
 						</div>
 					</fieldset>
 				</div>
-				<button type="submit">Add Item</button>
-				{statusMessage && <p>{statusMessage}</p>}
+
+				<div className="flex flex-col items-center">
+					<button
+						className="w-[117px] h-[46px] mt-8 text-xl bg-[#C2410C] rounded-md font-bold leading-[22px] text-white"
+						type="submit"
+					>
+						Add Item
+					</button>
+				</div>
+				{statusMessage && <p className="mt-6">{statusMessage}</p>}
 			</form>
 		</>
 	);
