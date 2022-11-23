@@ -2,7 +2,14 @@
 module.exports = {
 	content: ['./src/**/*.{html,jsx,js}'],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				navGreen: '#0CC296',
+			},
+			borderRadius: {
+				customLG: '3px',
+			},
+		},
 	},
 	plugins: [],
 };

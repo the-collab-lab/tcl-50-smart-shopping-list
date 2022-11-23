@@ -26,10 +26,16 @@ export function Layout() {
 
 					{currentToken ? (
 						<>
-							<NavLink to="/list" className="Nav-link">
+							<NavLink
+								to="/list"
+								className="Nav-link bg-orange-700  border border-black rounded-customLG text-white w-32 lg:w-48 text-2xl lg:text-4xl"
+							>
 								List
 							</NavLink>
-							<NavLink to="/add-item" className="Nav-link">
+							<NavLink
+								to="/add-item"
+								className="Nav-link bg-navGreen border border-black rounded-customLG text-white  w-36 lg:w-48 text-2xl lg:text-4xl"
+							>
 								Add Item
 							</NavLink>
 						</>
