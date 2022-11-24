@@ -8,7 +8,7 @@ export function Layout() {
 	return (
 		<>
 			<div className="Layout">
-				<header className="Layout-header text-[32px] lg:text-[48px] font-bold leading-[48px] top-16 mb-16 font-poppins">
+				<header className="Layout-header text-[28px]  font-bold leading-[48px] top-16 mb-16 font-poppins">
 					<h1>
 						Smart{' '}
 						<span className="lg:hidden">
