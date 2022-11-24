@@ -14,7 +14,7 @@ export function Layout() {
 				<main className="Layout-main">
 					<Outlet />
 				</main>
-				<nav className="Nav">
+				<nav className="Nav mb-8">
 					{/* I commented this out. It doesnt do anything for now.
 					We can decide on what happens when a  user clicks the home button */}
 
@@ -28,13 +28,13 @@ export function Layout() {
 						<>
 							<NavLink
 								to="/list"
-								className="Nav-link bg-orange-700  border border-black rounded-customLG text-white w-32 lg:w-48 text-2xl lg:text-4xl"
+								className="Nav-link bg-orange-700  border border-black rounded-[3px] text-white w-[81px] lg:w-[122px] h-[35px] lg:h-[76px] text-[14px] lg:text-[20px] lg:leading-[50px] font-bold font-poppins"
 							>
 								List
 							</NavLink>
 							<NavLink
 								to="/add-item"
-								className="Nav-link bg-navGreen border border-black rounded-customLG text-white  w-36 lg:w-48 text-2xl lg:text-4xl"
+								className="Nav-link bg-[#0CC296] border border-black rounded-[3px] text-white  w-[81px] lg:w-[122.35px]  h-[35px] lg:h-[76px] text-[14px] lg:text-[20px] lg:leading-[50px] font-bold font-poppins"
 							>
 								Add Item
 							</NavLink>
