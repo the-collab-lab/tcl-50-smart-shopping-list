@@ -16,21 +16,21 @@ export function Home({ onClick, onChange, handleForm }) {
 		>
 			<button
 				onClick={onClick}
-				className="create-list-btn bg-[#C2410C] text-white w-[243px] lg:w-[334px] h-[46px] lg:h-[70px]
-				rounded-[10px] font-poppins font-bold text-[20px] lg:text-[32px] leading-[30px] mb-16 border border-1 border-black
+				className="create-list-btn bg-[#C2410C] text-white px-[10px] lg:px-[15px] py-[8px] lg:py-[12px]
+				rounded-[10px] font-poppins font-bold text-[16px] lg:text-[20px] leading-[20px] mb-16 border border-1 border-black
 				"
 			>
 				Create New List
 			</button>
 
 			<form onSubmit={handleForm} className="mt-20">
-				<p className="mb-10 lg:mb-16 font-poppins font-bold text-[20px] lg:text-[22px] text-center ">
+				<p className="mb-10 lg:mb-16 font-poppins font-bold text-[16px] lg:text-[20px] text-center ">
 					Already have a list?
 				</p>
 				<div className="">
 					<label
 						htmlFor="join-list"
-						className=" font-poppins font-thin text-[15px] lg:text-[20px]"
+						className=" font-poppins font-thin text-[15px] lg:text-[18px]"
 					>
 						Join an existing list
 					</label>
@@ -42,13 +42,13 @@ export function Home({ onClick, onChange, handleForm }) {
 						name="join-list"
 						id="join-list"
 						placeholder="Enter three word token"
-						className="h-[45px] lg:h-[70px] w-[243px] lg:w-[334px]
+						className="py-[8px] lg:py-[12px] px-[10px]  lg:px-[10px]
 						border border-black leading-[20px]
 						placeholder:text-[#000000]
 						lg:placeholder:text-[#777777]
 						placeholder:pl-[13px]
 						placeholder:text-[13px]
-						lg:placeholder:text-[22px]
+						lg:placeholder:text-[15px]
 
 						placeholder:font-light
 						rounded-[3px]
@@ -59,7 +59,7 @@ export function Home({ onClick, onChange, handleForm }) {
 					<button
 						type="submit"
 						disabled={!token}
-						className="bg-[#C2410C] mt-12 text-white rounded-[3px] lg:rounded-[5px] w-[117px] lg:w-[189px] h-[35px] lg:h-[60px]  text-[20px] lg:text-[24px] font-poppins border border-1 border-black "
+						className="bg-[#C2410C] mt-12 text-white rounded-[3px] lg:rounded-[5px] px-[14px] lg:px-[34px] py-[8px] lg:py-[8px]  text-[20px] lg:text-[24px] font-poppins border border-1 border-black "
 					>
 						Join
 					</button>
