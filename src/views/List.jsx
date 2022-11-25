@@ -59,10 +59,10 @@ export function List({ data, listToken, isLoading }) {
 			) : data.length ? (
 				<>
 					{listToken && (
-						<div className="flex items-center justify-center gap-2 lg:gap-4 text-[15px] lg:text-[22px] my-3">
+						<div className="flex items-center justify-center gap-2 lg:gap-4 my-3">
 							<p>Your list : {listToken}</p>
 							<button
-								className="outline-2 p-2 bg-[#C2410C] rounded-lg"
+								className="outline-2 p-2 bg-[#C2410C] text-white rounded-lg"
 								onClick={copyToken}
 							>
 								{copy}
@@ -71,7 +71,7 @@ export function List({ data, listToken, isLoading }) {
 					)}
 					<form className="flex flex-col my-5 justify-center items-center">
 						<div className="w-[80%]">
-							<label htmlFor="filter_items" className="self-start lg:text-4xl">
+							<label htmlFor="filter_items" className="self-start ">
 								Filter items{' '}
 							</label>
 							<input
@@ -94,7 +94,7 @@ export function List({ data, listToken, isLoading }) {
 
 					<div className="flex justify-center text-white">
 						<button
-							className="goToAnotherList p-3 lg:p-6 bg-[#C2410C] rounded-xl lg:text-4xl"
+							className="goToAnotherList p-3 lg:p-6 bg-[#C2410C] rounded-xl"
 							onClick={goToAnotherList}
 						>
 							Go to another list

@@ -77,7 +77,7 @@ export function ListItem({ listToken, item }) {
 						name={item.name}
 						className="w-7 h-7 lg:w-10 lg:h-10"
 					/>
-					<p className="lg:text-5xl">
+					<p>
 						{item.name} - <span className="text-md">{getAria()}</span>
 					</p>
 				</label>
