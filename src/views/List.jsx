@@ -53,42 +53,65 @@ export function List({ data, listToken, isLoading }) {
 		}
 	};
 	return (
-		<>
+		<div className="min-h-[100vh]">
 			{isLoading ? (
 				'Loading...'
 			) : data.length ? (
 				<>
 					{listToken && (
-						<div>
+						<div className="flex items-center justify-center gap-2 lg:gap-4 text-[15px] lg:text-[22px] my-3">
 							<p>Your list : {listToken}</p>
-							<button onClick={copyToken}>{copy}</button>
+							<button
+								className="outline-2 p-2 bg-[#C2410C] rounded-lg"
+								onClick={copyToken}
+							>
+								{copy}
+							</button>
 						</div>
 					)}
-					<form>
-						<label htmlFor="filter_items">Filter items </label>
-						<input
-							type="search"
-							value={searchItem}
-							id="filter_items"
-							placeholder="Start typing here..."
-							onChange={(e) => setSearchItem(e.target.value)}
-						/>
+					<form className="flex flex-col my-5 justify-center items-center">
+						<div className="w-[80%]">
+							<label htmlFor="filter_items" className="self-start lg:text-4xl">
+								Filter items{' '}
+							</label>
+							<input
+								type="search"
+								value={searchItem}
+								id="filter_items"
+								placeholder="Start typing here..."
+								onChange={(e) => setSearchItem(e.target.value)}
+								className="w-[100%] p-4 lg:p-6 rounded-xl border-solid border-2 border-black bg-white"
+							/>
+						</div>
 					</form>
-					<ul>
-						{filteredItems.map((item) => (
-							<ListItem item={item} key={item.id} listToken={listToken} />
-						))}
-					</ul>
-					<button className="goToAnotherList" onClick={goToAnotherList}>
-						Go to another list
-					</button>
+					<div className="flex flex-col  gap-2 my-5 justify-center items-center">
+						<ul className="w-[80%] ">
+							{filteredItems.map((item) => (
+								<ListItem item={item} key={item.id} listToken={listToken} />
+							))}
+						</ul>
+					</div>
+
+					<div className="flex justify-center text-white">
+						<button
+							className="goToAnotherList p-3 lg:p-6 bg-[#C2410C] rounded-xl lg:text-4xl"
+							onClick={goToAnotherList}
+						>
+							Go to another list
+						</button>
+					</div>
 				</>
 			) : (
-				<>
-					<p>Your shopping list is currently empty.</p>
-					<button onClick={() => navigate('/add-item')}>Add Item</button>
-				</>
+				<div className="flex flex-col lg:max-w-[60vw] justify-center items-center gap-5 mt-10">
+					<p className="text-center">Your shopping list is currently empty.</p>
+					<button
+						onClick={() => navigate('/add-item')}
+						className="p-3 bg-green-500 rounded-xl w-[200px] text-white"
+					>
+						Add Item
+					</button>
+				</div>
 			)}
-		</>
+		</div>
 	);
 }

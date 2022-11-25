@@ -63,8 +63,11 @@ export function ListItem({ listToken, item }) {
 
 	return (
 		<>
-			<li className="ListItem" style={{ color: getTextColor() }}>
-				<label htmlFor={item.id}>
+			<li
+				className="w-full flex justify-between  items-center my-5 lg:my-10"
+				style={{ color: getTextColor() }}
+			>
+				<label htmlFor={item.id} className="w-[75%] flex items-center gap-4">
 					<input
 						type="checkbox"
 						aria-label={getAria()}
@@ -72,10 +75,18 @@ export function ListItem({ listToken, item }) {
 						checked={item.isChecked}
 						onChange={handleChange}
 						name={item.name}
+						className="w-7 h-7 lg:w-10 lg:h-10"
 					/>
-					{item.name} - {getAria()}
+					<p className="lg:text-5xl">
+						{item.name} - <span className="text-md">{getAria()}</span>
+					</p>
 				</label>
-				<button onClick={() => handleDelete(listToken, item.id)}>Delete</button>
+				<button
+					className="bg-[#ED0D0D] p-2 lg:p-5 rounded-md text-white"
+					onClick={() => handleDelete(listToken, item.id)}
+				>
+					Delete
+				</button>
 			</li>
 		</>
 	);
