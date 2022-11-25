@@ -143,7 +143,7 @@ export function AddItem({ data, listToken }) {
 						Add Item
 					</button>
 				</div>
-				{statusMessage && <p className="mt-6">{statusMessage}</p>}
+				{statusMessage && <p className="mt-6 text-center">{statusMessage}</p>}
 			</form>
 		</>
 	);
