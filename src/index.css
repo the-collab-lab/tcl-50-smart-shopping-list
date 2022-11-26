@@ -2,10 +2,13 @@
 
 :root {
 	--color-bg: linear-gradient(
-		180deg,
-		rgba(243, 244, 246, 1) 0%,
-		rgba(194, 65, 12, 1) 100%
+		190deg,
+		rgba(243, 244, 246, 0.8) 0%,
+		rgba(138, 43, 4, 0.7) 100%
 	);
+	/*190deg,
+		rgba(243, 244, 246, 1) 0%,
+		rgba(194, 65, 12, 1) 100%*/
 	--color-black: #000000;
 	/* --color-gray-dark: hsla(220, 13%, 25%, 1); */
 	/* --color-white: hsla(220, 13%, 98%, 1); */
