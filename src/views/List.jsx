@@ -94,7 +94,7 @@ export function List({ data, listToken, isLoading }) {
 
 					<div className="flex justify-center text-white">
 						<button
-							className="goToAnotherList p-3 lg:p-6 bg-[#C2410C] rounded-xl"
+							className="goToAnotherList p-3 mb-9 lg:p-6 bg-[#C2410C] rounded-xl"
 							onClick={goToAnotherList}
 						>
 							Go to another list
