@@ -37,7 +37,7 @@ export function ListItem({ listToken, item }) {
 		} else if (item?.currentEstimate >= 30 && item?.currentEstimate <= 60) {
 			return 'blue';
 		} else if (item?.currentEstimate > 60) {
-			return 'gray';
+			return 'black';
 		}
 	};
 
