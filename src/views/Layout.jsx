@@ -21,15 +21,6 @@ export function Layout() {
 					<Outlet />
 				</main>
 				<nav className="Nav mb-8">
-					{/* I commented this out. It doesnt do anything for now.
-					We can decide on what happens when a  user clicks the home button */}
-
-					{/* {!currentToken ? (
-						<NavLink to="/" className="Nav-link">
-							Home
-						</NavLink>
-					) : null} */}
-
 					{currentToken ? (
 						<>
 							<NavLink
