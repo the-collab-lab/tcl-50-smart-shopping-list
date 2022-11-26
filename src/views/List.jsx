@@ -60,7 +60,7 @@ export function List({ data, listToken, isLoading }) {
 				<>
 					{listToken && (
 						<div className="flex items-center justify-center gap-2 lg:gap-4 my-3">
-							<p>Your list : {listToken}</p>
+							<p>Your list: {listToken}</p>
 							<button
 								className="outline-2 p-2 bg-[#C2410C] text-white rounded-lg"
 								onClick={copyToken}
