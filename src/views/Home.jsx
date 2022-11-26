@@ -25,7 +25,7 @@ export function Home({ onClick, onChange, handleForm }) {
 
 			<form onSubmit={handleForm} className="mt-20">
 				<p className="mb-10 lg:mb-16 font-poppins font-bold text-[16px] lg:text-[20px] text-center ">
-					Already have a list?
+					OR
 				</p>
 				<div className="">
 					<label
