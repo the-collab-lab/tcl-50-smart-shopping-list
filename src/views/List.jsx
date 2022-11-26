@@ -53,7 +53,7 @@ export function List({ data, listToken, isLoading }) {
 		}
 	};
 	return (
-		<div className="min-h-[100vh]">
+		<>
 			{isLoading ? (
 				'Loading...'
 			) : data.length ? (
@@ -112,6 +112,6 @@ export function List({ data, listToken, isLoading }) {
 					</button>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }
