@@ -34,13 +34,13 @@ export function Layout() {
 						<>
 							<NavLink
 								to="/list"
-								className="Nav-link bg-orange-700  border border-black rounded-[3px] text-white lg:leading-[20px] text-[14px] lg:text-[18px] font-bold font-poppins"
+								className="Nav-link bg-orange-700 w-60 h-18 border border-black rounded-[3px] text-white lg:leading-[20px] text-[14px] lg:text-[16px] font-bold font-poppins"
 							>
 								List
 							</NavLink>
 							<NavLink
 								to="/add-item"
-								className="Nav-link bg-[#0CC296] border border-black rounded-[3px] text-white   text-[14px] lg:text-[18px] lg:leading-[20px] font-bold font-poppins"
+								className="Nav-link bg-[#0CC296] w-60 h-18 border border-black rounded-[3px] text-white text-[14px] lg:text-[16px] lg:leading-[20px] font-bold font-poppins"
 							>
 								Add Item
 							</NavLink>
