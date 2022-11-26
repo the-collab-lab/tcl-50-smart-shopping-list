@@ -33,7 +33,7 @@ export function App() {
 		streamListItems(formToken, (snapshot) => {
 			const listData = getItemData(snapshot);
 			if (listData?.length === 0) {
-				alert('this token does not exist');
+				alert('This token does not exist.');
 			} else {
 				setListToken(formToken);
 			}
