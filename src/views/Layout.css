@@ -43,7 +43,6 @@
 	flex-direction: row;
 	justify-content: space-around;
 	margin-top: auto;
-	position: sticky;
 }
 
 .Nav-link {
