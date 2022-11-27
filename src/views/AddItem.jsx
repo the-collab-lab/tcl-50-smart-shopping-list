@@ -56,7 +56,7 @@ export function AddItem({ data, listToken }) {
 				className="md:h-fit m-5 mt-10 sm:w-[360px] sm:h-[800px] "
 				onSubmit={handleSubmit}
 			>
-				<div className="text-center sm:text-left">
+				<div className="sm:text-left">
 					<label
 						className="w-[92px] h-[30px] font-normal leading-7"
 						htmlFor="name"
@@ -65,7 +65,7 @@ export function AddItem({ data, listToken }) {
 					</label>
 					<br />
 					<input
-						className="md:w-[375px] mt-4 mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white rounded-xl"
+						className="md:w-[375px]  mb-5 p-3 md:h-[46px] rounded-xl border-solid border-2 border-black bg-white rounded-xl"
 						type="text"
 						id="name"
 						placeholder="Enter Item to Purchase"

@@ -60,7 +60,7 @@ export function List({ data, listToken, isLoading }) {
 				<>
 					{listToken && (
 						<div className="flex items-center justify-center gap-2 lg:gap-4 my-3">
-							<p>Your list : {listToken}</p>
+							<p>Your list: {listToken}</p>
 							<button
 								className="outline-2 p-2 bg-[#C2410C] text-white rounded-lg"
 								onClick={copyToken}
@@ -94,7 +94,7 @@ export function List({ data, listToken, isLoading }) {
 
 					<div className="flex justify-center text-white">
 						<button
-							className="goToAnotherList p-3 lg:p-6 bg-[#C2410C] rounded-xl"
+							className="goToAnotherList p-3 mb-20 lg:p-6 bg-[#C2410C] rounded-xl"
 							onClick={goToAnotherList}
 						>
 							Go to another list

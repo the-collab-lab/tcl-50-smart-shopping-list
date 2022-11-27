@@ -25,7 +25,7 @@ export function Home({ onClick, onChange, handleForm }) {
 
 			<form onSubmit={handleForm} className="mt-20">
 				<p className="mb-10 lg:mb-16 font-poppins font-bold text-[16px] lg:text-[20px] text-center ">
-					Already have a list?
+					OR
 				</p>
 				<div className="">
 					<label
@@ -59,7 +59,7 @@ export function Home({ onClick, onChange, handleForm }) {
 					<button
 						type="submit"
 						disabled={!token}
-						className="bg-[#C2410C] mt-12 text-white rounded-[3px] lg:rounded-[5px] px-[14px] lg:px-[34px] py-[8px] lg:py-[8px]  text-[20px] lg:text-[24px] font-poppins border border-1 border-black "
+						className="bg-[#C2410C] mt-12 text-white rounded-[3px] lg:rounded-[5px] px-[14px] lg:px-[34px] py-[8px] lg:py-[8px]  text-[20px] lg:text-[24px] disabled:opacity-50 font-poppins border border-1 border-black "
 					>
 						Join
 					</button>
