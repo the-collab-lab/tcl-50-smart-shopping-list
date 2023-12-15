@@ -5,7 +5,6 @@ import {
 	Route,
 	Navigate,
 } from 'react-router-dom';
-import { generateToken } from '@the-collab-lab/shopping-list-utils';
 import { AddItem, Home, Layout, List } from './views';
 
 import { getItemData, streamListItems } from './api';
@@ -23,9 +22,10 @@ export function App() {
 	);
 
 	const handleClick = useCallback(() => {
-		const newToken = generateToken();
-		setListToken(newToken);
-	}, [setListToken]);
+		// const newToken = generateToken();
+		// setListToken(newToken);
+		console.log('Creating lists is no longer supported.');
+	}, []);
 
 	// this function handles the join shopping list form in the home page
 	function handleForm(e) {

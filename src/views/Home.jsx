@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
 
 import './Home.css';
 
@@ -65,6 +66,7 @@ export function Home({ onClick, onChange, handleForm }) {
 					</button>
 				</div>
 			</form>
+			<ArchivalNoticeModal />
 		</div>
 	);
 }
